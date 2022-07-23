@@ -1,5 +1,5 @@
 #!/bin/bash
-# My Telegram : https://t.me/Akbar218
+# Oh Yeah! : thethemythwashere
 # ==========================================
 # Color
 RED='\033[0;31m'
@@ -11,7 +11,7 @@ PURPLE='\033[0;35m'
 CYAN='\033[0;36m'
 LIGHT='\033[0;37m'
 # ==========================================
-# Getting
+# Persiapan VPS
 clear
 read -rp "Input Your Domain For This Server :" -e SUB_DOMAIN
 echo "Host : $SUB_DOMAIN"

@@ -10,11 +10,11 @@ PURPLE='\033[0;35m'
 CYAN='\033[0;36m'
 LIGHT='\033[0;37m'
 # ==========================================
-# Getting
+# Persiapan VPS
 clear
 echo start
 sleep 0.5
-source /var/lib/akbarstorevpn/ipvps.conf
+source /var/lib/sanistorevpn/ipvps.conf
 domain=$(cat /etc/xray/domain)
 sudo lsof -t -i tcp:80 -s tcp:listen | sudo xargs kill
 cd /root/
@@ -23,7 +23,7 @@ bash acme.sh --install
 rm acme.sh
 cd .acme.sh
 echo "starting...., Port 80 Akan di Hentikan Saat Proses install Cert"
-bash acme.sh --register-account -m senowahyu62@gmail.com
+bash acme.sh --register-account -m Yukik4ze@gmail.com
 bash acme.sh --issue --standalone -d $domain --force
 bash acme.sh --installcert -d $domain --fullchainpath /etc/xray/xray.crt --keypath /etc/xray/xray.key
 restart

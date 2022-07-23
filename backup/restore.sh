@@ -10,7 +10,7 @@ PURPLE='\033[0;35m'
 CYAN='\033[0;36m'
 LIGHT='\033[0;37m'
 # ==========================================
-# Getting
+# Persiapan VPS
 clear
 echo "This Feature Can Only Be Used According To Vps Data With This Autoscript"
 echo "Please input link to your vps data backup file."
@@ -30,7 +30,7 @@ cp -r wireguard /etc/
 cp chap-secrets /etc/ppp/
 cp passwd1 /etc/ipsec.d/passwd
 cp ss.conf /etc/shadowsocks-libev/ss.conf
-cp -r akbarstorevpn /var/lib/
+cp -r sanistorevpn /var/lib/
 cp -r sstp /home/
 cp -r xray /etc/
 cp -r trojan-go /etc/

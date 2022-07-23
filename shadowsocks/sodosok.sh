@@ -1,6 +1,6 @@
 #!/bin/bash
 #shadowsocks-libev obfs install by Akbar Maulana
-# My Telegram : https://t.me/Akbar218
+# Oh Yeah! : thethemythwashere
 # ==========================================
 # Color
 RED='\033[0;31m'
@@ -12,10 +12,10 @@ PURPLE='\033[0;35m'
 CYAN='\033[0;36m'
 LIGHT='\033[0;37m'
 # ==========================================
-# Getting
+# Persiapan VPS
 MYIP=$(wget -qO- ipinfo.io/ip);
-echo "Checking VPS"
-IZIN=$( curl https://raw.githubusercontent.com/senowahyu62/perizinan/main/ipvps.txt | grep $MYIP )
+echo "Memeriksa VPS"
+IZIN=$( curl https://raw.githubusercontent.com/Yukik4ze/perizinan/main/ipvps.txt | grep $MYIP )
 if [ $MYIP = $MYIP ]; then
 echo -e "${NC}${GREEN}Permission Accepted...${NC}"
 else
@@ -23,11 +23,11 @@ echo -e "${NC}${RED}Permission Denied!${NC}";
 echo -e "${NC}${LIGHT}Please Contact Admin!!"
 echo -e "${NC}${LIGHT}Facebook : https://m.facebook.com/lis.tio.718"
 echo -e "${NC}${LIGHT}WhatsApp : 081545854516"
-echo -e "${NC}${LIGHT}Telegram : https://t.me/Akbar218"
+echo -e "${NC}${LIGHT}Telegram : thethemythwashere"
 exit 0
 fi
 # Link Hosting Kalian
-akbarvpn="raw.githubusercontent.com/senowahyu62/scriptvps/main/shadowsocks"
+sanivpn="raw.githubusercontent.com/Yukik4ze/scriptvps/main/shadowsocks"
 
 source /etc/os-release
 OS=$ID
@@ -117,10 +117,10 @@ iptables -I INPUT -m state --state NEW -m udp -p udp --dport 2443:3543 -j ACCEPT
 iptables-save > /etc/iptables.up.rules
 ip6tables-save > /etc/ip6tables.up.rules
 cd /usr/bin
-wget -O addss "https://${akbarvpn}/addss.sh"
-wget -O delss "https://${akbarvpn}/delss.sh"
-wget -O cekss "https://${akbarvpn}/cekss.sh"
-wget -O renewss "https://${akbarvpn}/renewss.sh"
+wget -O addss "https://${sanivpn}/addss.sh"
+wget -O delss "https://${sanivpn}/delss.sh"
+wget -O cekss "https://${sanivpn}/cekss.sh"
+wget -O renewss "https://${sanivpn}/renewss.sh"
 chmod +x addss
 chmod +x delss
 chmod +x cekss

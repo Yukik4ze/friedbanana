@@ -10,11 +10,11 @@ PURPLE='\033[0;35m'
 CYAN='\033[0;36m'
 LIGHT='\033[0;37m'
 # ==========================================
-# Getting
+# Persiapan VPS
 MYIP=$(wget -qO- ipinfo.io/ip);
 clear
 read -rp "Domain/Host : " -e domain
-echo "IP=$domain" >>/var/lib/akbarstorevpn/ipvps.conf
+echo "IP=$domain" >>/var/lib/sanistorevpn/ipvps.conf
 rm -rf /etc/xray/domain
 echo $domain > /etc/xray/domain
 certv2ray

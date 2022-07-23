@@ -3,7 +3,7 @@
 # Ubuntu 18.04 & 20.04 bit
 # Centos 7 & 8 64bit 
 # By Akbar Maulana
-# My Telegram : https://t.me/Akbar218
+# Oh Yeah! : thethemythwashere
 # ==========================================
 # Color
 RED='\033[0;31m'
@@ -15,10 +15,10 @@ PURPLE='\033[0;35m'
 CYAN='\033[0;36m'
 LIGHT='\033[0;37m'
 # ==========================================
-# Getting
+# Persiapan VPS
 MYIP=$(wget -qO- ipinfo.io/ip);
-echo "Checking VPS"
-IZIN=$( curl https://raw.githubusercontent.com/senowahyu62/perizinan/main/ipvps.txt | grep $MYIP )
+echo "Memeriksa VPS"
+IZIN=$( curl https://raw.githubusercontent.com/Yukik4ze/perizinan/main/ipvps.txt | grep $MYIP )
 if [ $MYIP = $MYIP ]; then
 echo -e "${NC}${GREEN}Permission Accepted...${NC}"
 else
@@ -26,12 +26,12 @@ echo -e "${NC}${RED}Permission Denied!${NC}";
 echo -e "${NC}${LIGHT}Please Contact Admin!!"
 echo -e "${NC}${LIGHT}Facebook : https://m.facebook.com/lis.tio.718"
 echo -e "${NC}${LIGHT}WhatsApp : 081545854516"
-echo -e "${NC}${LIGHT}Telegram : https://t.me/Akbar218"
+echo -e "${NC}${LIGHT}Telegram : thethemythwashere"
 exit 0
 fi
 # ==================================================
 # Link Hosting Kalian
-akbarvpn="raw.githubusercontent.com/senowahyu62/scriptvps/main/wireguard"
+sanivpn="raw.githubusercontent.com/Yukik4ze/scriptvps/main/wireguard"
 
 # Check OS version
 if [[ -e /etc/debian_version ]]; then
@@ -116,9 +116,9 @@ WG_RUNNING=$?
 
 # Tambahan
 cd /usr/bin
-wget -O addwg "https://${akbarvpn}/addwg.sh"
-wget -O delwg "https://${akbarvpn}/delwg.sh"
-wget -O renewwg "https://${akbarvpn}/renewwg.sh"
+wget -O addwg "https://${sanivpn}/addwg.sh"
+wget -O delwg "https://${sanivpn}/delwg.sh"
+wget -O renewwg "https://${sanivpn}/renewwg.sh"
 chmod +x addwg
 chmod +x delwg
 chmod +x renewwg

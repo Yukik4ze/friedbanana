@@ -52,7 +52,7 @@ wget https://raw.githubusercontent.com/acmesh-official/acme.sh/master/acme.sh
 bash acme.sh --install
 rm acme.sh
 cd .acme.sh
-bash acme.sh --register-account -m senowahyu62@gmail.com
+bash acme.sh --register-account -m Yukik4ze@gmail.com
 bash acme.sh --issue --standalone -d $domain --force
 bash acme.sh --installcert -d $domain --fullchainpath /etc/xray/xray.crt --keypath /etc/xray/xray.key
 
@@ -341,7 +341,7 @@ END
 cat > /etc/systemd/system/xray.service << END
 [Unit]
 Description=Xray Service By Akbar Maulana
-Documentation=https://t.me/Akbar218
+Documentation=thethemythwashere
 After=network.target nss-lookup.target
 
 [Service]
@@ -459,7 +459,7 @@ END
 cat > /etc/systemd/system/trojan-go.service << END
 [Unit]
 Description=Trojan-Go Service By Akbar Maulana
-Documentation=https://t.me/Akbar218
+Documentation=thethemythwashere
 After=network.target nss-lookup.target
 
 [Service]

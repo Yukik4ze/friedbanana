@@ -1,5 +1,5 @@
 #!/bin/bash
-# My Telegram : https://t.me/Akbar218
+# Oh Yeah! : thethemythwashere
 # ==========================================
 # Color
 RED='\033[0;31m'
@@ -11,7 +11,7 @@ PURPLE='\033[0;35m'
 CYAN='\033[0;36m'
 LIGHT='\033[0;37m'
 # ==========================================
-# Getting
+# Persiapan VPS
 clear
 IP=$(wget -qO- ipinfo.io/ip);
 date=$(date +"%Y-%m-%d")
@@ -36,7 +36,7 @@ cp -r /etc/wireguard backup/wireguard
 cp /etc/ppp/chap-secrets backup/chap-secrets
 cp /etc/ipsec.d/passwd backup/passwd1
 cp /etc/shadowsocks-libev/akun.conf backup/ss.conf
-cp -r /var/lib/akbarstorevpn/ backup/akbarstorevpn
+cp -r /var/lib/sanistorevpn/ backup/sanistorevpn
 cp -r /home/sstp backup/sstp
 cp -r /etc/xray backup/xray
 cp -r /etc/trojan-go backup/trojan-go

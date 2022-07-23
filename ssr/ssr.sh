@@ -1,5 +1,5 @@
 #!/bin/bash
-# My Telegram : https://t.me/Akbar218
+# Oh Yeah! : thethemythwashere
 # ==========================================
 # Color
 RED='\033[0;31m'
@@ -11,10 +11,10 @@ PURPLE='\033[0;35m'
 CYAN='\033[0;36m'
 LIGHT='\033[0;37m'
 # ==========================================
-# Getting
+# Persiapan VPS
 MYIP=$(wget -qO- ipinfo.io/ip);
-echo "Checking VPS"
-IZIN=$( curl https://raw.githubusercontent.com/senowahyu62/perizinan/main/ipvps.txt | grep $MYIP )
+echo "Memeriksa VPS"
+IZIN=$( curl https://raw.githubusercontent.com/Yukik4ze/perizinan/main/ipvps.txt | grep $MYIP )
 if [ $MYIP = $MYIP ]; then
 echo -e "${NC}${GREEN}Permission Accepted...${NC}"
 else
@@ -22,11 +22,11 @@ echo -e "${NC}${RED}Permission Denied!${NC}";
 echo -e "${NC}${LIGHT}Please Contact Admin!!"
 echo -e "${NC}${LIGHT}Facebook : https://m.facebook.com/lis.tio.718"
 echo -e "${NC}${LIGHT}WhatsApp : 081545854516"
-echo -e "${NC}${LIGHT}Telegram : https://t.me/Akbar218"
+echo -e "${NC}${LIGHT}Telegram : thethemythwashere"
 exit 0
 fi
 # Link Hosting Kalian
-akbarvpn="raw.githubusercontent.com/senowahyu62/scriptvps/main/ssr"
+sanivpn="raw.githubusercontent.com/Yukik4ze/scriptvps/main/ssr"
 
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
@@ -151,7 +151,7 @@ if [[ ${OS} == "centos" ]]; then
 }
 Start_SSR(){
 	check_pid
-	wget -O /etc/init.d/ssrmu "https://${akbarvpn}/ssrmu"
+	wget -O /etc/init.d/ssrmu "https://${sanivpn}/ssrmu"
 	/etc/init.d/ssrmu start
 }
 Install_SSR(){
@@ -167,9 +167,9 @@ Save_iptables
 Start_SSR
 }
 Install_SSR
-wget -O /usr/bin/ssr https://${akbarvpn}/ssrmu.sh && chmod +x /usr/bin/ssr
-wget -O /usr/bin/addssr https://${akbarvpn}/addssr.sh && chmod +x /usr/bin/addssr
-wget -O /usr/bin/delssr https://${akbarvpn}/delssr.sh && chmod +x /usr/bin/delssr
-wget -O /usr/bin/renewssr https://${akbarvpn}/renewssr.sh && chmod +x /usr/bin/renewssr
+wget -O /usr/bin/ssr https://${sanivpn}/ssrmu.sh && chmod +x /usr/bin/ssr
+wget -O /usr/bin/addssr https://${sanivpn}/addssr.sh && chmod +x /usr/bin/addssr
+wget -O /usr/bin/delssr https://${sanivpn}/delssr.sh && chmod +x /usr/bin/delssr
+wget -O /usr/bin/renewssr https://${sanivpn}/renewssr.sh && chmod +x /usr/bin/renewssr
 touch /usr/local/shadowsocksr/akun.conf
 rm -f /root/ssr.sh
