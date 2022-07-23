@@ -16,13 +16,11 @@ MYIP=$(wget -qO- ipinfo.io/ip);
 echo "Memeriksa VPS"
 IZIN=$( curl https://raw.githubusercontent.com/Yukik4ze/perizinan/main/ipvps.txt | grep $MYIP )
 if [ $MYIP = $MYIP ]; then
-echo -e "${NC}${GREEN}Permission Accepted...${NC}"
+echo -e "${NC}${GREEN}Permisi Diterima...${NC}"
 else
-echo -e "${NC}${RED}Permission Denied!${NC}";
-echo -e "${NC}${LIGHT}Please Contact Admin!!"
-echo -e "${NC}${LIGHT}Facebook : https://m.facebook.com/lis.tio.718"
-echo -e "${NC}${LIGHT}WhatsApp : 081545854516"
-echo -e "${NC}${LIGHT}Telegram : thethemythwashere"
+echo -e "${NC}${RED}Permisi Ditolak${NC}";
+#
+echo -e "${NC}${LIGHT}Remade by : thethemythwashere"
 exit 0
 fi
 clear
@@ -30,14 +28,14 @@ NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/etc/shadowsocks-libev/akun.conf")
 	if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
 		clear
 		echo ""
-		echo "You have no existing clients!"
+		echo "Anda tidak memiliki klien!"
 		exit 1
 	fi
 
 	clear
 	echo ""
 	echo " Select the existing client you want to remove"
-	echo " Press CTRL+C to return"
+	echo " Tekan CTRL+C untuk kembali"
 	echo " ==============================="
 	echo "     No  Expired   User"
 	grep -E "^### " "/etc/shadowsocks-libev/akun.conf" | cut -d ' ' -f 2-3 | nl -s ') '
@@ -67,7 +65,7 @@ echo ""
 echo "==========================="
 echo "  SS OBFS Account Deleted  "
 echo "==========================="
-echo "Username  : $user"
-echo "Expired   : $exp"
+echo "Username   : $user"
+echo "Kadaluarsa : $exp"
 echo "==========================="
-echo "Script By Akbar Maulana"
+echo "Script By SaniVPN"

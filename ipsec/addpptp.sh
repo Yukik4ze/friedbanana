@@ -16,13 +16,11 @@ MYIP=$(wget -qO- ipinfo.io/ip);
 echo "Memeriksa VPS"
 IZIN=$( curl https://raw.githubusercontent.com/Yukik4ze/perizinan/main/ipvps.txt | grep $MYIP )
 if [ $MYIP = $MYIP ]; then
-echo -e "${NC}${GREEN}Permission Accepted...${NC}"
+echo -e "${NC}${GREEN}Permisi Diterima...${NC}"
 else
-echo -e "${NC}${RED}Permission Denied!${NC}";
-echo -e "${NC}${LIGHT}Please Contact Admin!!"
-echo -e "${NC}${LIGHT}Facebook : https://m.facebook.com/lis.tio.718"
-echo -e "${NC}${LIGHT}WhatsApp : 081545854516"
-echo -e "${NC}${LIGHT}Telegram : thethemythwashere"
+echo -e "${NC}${RED}Permisi Ditolak${NC}";
+#
+echo -e "${NC}${LIGHT}Remade by : thethemythwashere"
 exit 0
 fi
 clear
@@ -48,7 +46,7 @@ until [[ $VPN_USER =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 		fi
 	done
 read -p "Password : " VPN_PASSWORD
-read -p "Expired (Days) : " masaaktif
+read -p "Kadaluarsa : (Hari) : " masaaktif
 hariini=`date -d "0 days" +"%Y-%m-%d"`
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 clear
@@ -68,10 +66,10 @@ PPTP VPN
 ============================
 IP/Host   : $PUBLIC_IP
 Domain    : $domain
-Username  : $VPN_USER
+Username   : $VPN_USER
 Password  : $VPN_PASSWORD
 Created   : $hariini
-Expired   : $exp
+Kadaluarsa : $exp
 ============================
-Script By Akbar Maulana
+Script By SaniVPN
 EOF

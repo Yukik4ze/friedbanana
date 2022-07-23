@@ -20,13 +20,11 @@ MYIP=$(wget -qO- ipinfo.io/ip);
 echo "Memeriksa VPS"
 IZIN=$( curl https://raw.githubusercontent.com/Yukik4ze/perizinan/main/ipvps.txt | grep $MYIP )
 if [ $MYIP = $MYIP ]; then
-echo -e "${NC}${GREEN}Permission Accepted...${NC}"
+echo -e "${NC}${GREEN}Permisi Diterima...${NC}"
 else
-echo -e "${NC}${RED}Permission Denied!${NC}";
-echo -e "${NC}${LIGHT}Please Contact Admin!!"
-echo -e "${NC}${LIGHT}Facebook : https://m.facebook.com/lis.tio.718"
-echo -e "${NC}${LIGHT}WhatsApp : 081545854516"
-echo -e "${NC}${LIGHT}Telegram : thethemythwashere"
+echo -e "${NC}${RED}Permisi Ditolak${NC}";
+#
+echo -e "${NC}${LIGHT}Remade by : thethemythwashere"
 exit 0
 fi
 # ==================================================
@@ -50,7 +48,7 @@ if [[ -e /etc/wireguard/params ]]; then
 	exit 1
 fi
 
-echo -e "${Info} Wireguard Script By Akbar Maulana"
+echo -e "${Info} Wireguard Script By SaniVPN"
 # Detect public IPv4 address and pre-fill for the user
 
 # Detect public interface and pre-fill for the user

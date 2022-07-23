@@ -16,13 +16,11 @@ MYIP=$(wget -qO- ipinfo.io/ip);
 echo "Memeriksa VPS"
 IZIN=$( curl https://raw.githubusercontent.com/Yukik4ze/perizinan/main/ipvps.txt | grep $MYIP )
 if [ $MYIP = $MYIP ]; then
-echo -e "${NC}${GREEN}Permission Accepted...${NC}"
+echo -e "${NC}${GREEN}Permisi Diterima...${NC}"
 else
-echo -e "${NC}${RED}Permission Denied!${NC}";
-echo -e "${NC}${LIGHT}Please Contact Admin!!"
-echo -e "${NC}${LIGHT}Facebook : https://m.facebook.com/lis.tio.718"
-echo -e "${NC}${LIGHT}WhatsApp : 081545854516"
-echo -e "${NC}${LIGHT}Telegram : thethemythwashere"
+echo -e "${NC}${RED}Permisi Ditolak${NC}";
+#
+echo -e "${NC}${LIGHT}Remade by : thethemythwashere"
 exit 0
 fi
 clear
@@ -68,7 +66,7 @@ CLIENT_DNS_1="176.103.130.130"
 
 CLIENT_DNS_2="176.103.130.131"
 MYIP=$(wget -qO- ifconfig.co);
-read -p "Expired (Days) : " masaaktif
+read -p "Kadaluarsa : (Hari) : " masaaktif
 hariini=`date -d "0 days" +"%Y-%m-%d"`
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 
@@ -116,5 +114,5 @@ echo -e "Expired  : $exp"
 echo -e "======================="
 echo -e "Link WG  : http://$MYIP:89/$CLIENT_NAME.conf"
 echo -e "======================="
-echo -e "Script By Akbar Maulana"
+echo -e "Script By SaniVPN"
 rm -f /root/wg0-client-$CLIENT_NAME.conf

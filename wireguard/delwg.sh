@@ -16,13 +16,11 @@ MYIP=$(wget -qO- ipinfo.io/ip);
 echo "Memeriksa VPS"
 IZIN=$( curl https://raw.githubusercontent.com/Yukik4ze/perizinan/main/ipvps.txt | grep $MYIP )
 if [ $MYIP = $MYIP ]; then
-echo -e "${NC}${GREEN}Permission Accepted...${NC}"
+echo -e "${NC}${GREEN}Permisi Diterima...${NC}"
 else
-echo -e "${NC}${RED}Permission Denied!${NC}";
-echo -e "${NC}${LIGHT}Please Contact Admin!!"
-echo -e "${NC}${LIGHT}Facebook : https://m.facebook.com/lis.tio.718"
-echo -e "${NC}${LIGHT}WhatsApp : 081545854516"
-echo -e "${NC}${LIGHT}Telegram : thethemythwashere"
+echo -e "${NC}${RED}Permisi Ditolak${NC}";
+#
+echo -e "${NC}${LIGHT}Remade by : thethemythwashere"
 exit 0
 fi
 clear
@@ -31,7 +29,7 @@ source /etc/wireguard/params
 	if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
 		clear
 		echo ""
-		echo "You have no existing clients!"
+		echo "Anda tidak memiliki klien!"
 		exit 1
 	fi
 
@@ -39,15 +37,15 @@ source /etc/wireguard/params
 	echo ""
 	echo ""
 	echo " Select the existing client you want to remove"
-	echo " Press CTRL+C to return"
+	echo " Tekan CTRL+C untuk kembali"
 	echo " ==============================="
 	echo "     No  Expired   User"
 	grep -E "^### Client" "/etc/wireguard/$SERVER_WG_NIC.conf" | cut -d ' ' -f 3-4 | nl -s ') '
 	until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
 		if [[ ${CLIENT_NUMBER} == '1' ]]; then
-			read -rp "Select one client [1]: " CLIENT_NUMBER
+			read -rp "Pilih satu klien [1]: " CLIENT_NUMBER
 		else
-			read -rp "Select one client [1-${NUMBER_OF_CLIENTS}]: " CLIENT_NUMBER
+			read -rp "Pilih satu klien [1-${NUMBER_OF_CLIENTS}]: " CLIENT_NUMBER
 		fi
 	done
 
@@ -69,7 +67,7 @@ echo ""
 echo "============================="
 echo "  Wireguard Account Deleted  "
 echo "============================="
-echo "Username  : $user"
-echo "Expired   : $exp"
+echo "Username   : $user"
+echo "Kadaluarsa : $exp"
 echo "============================="
-echo "Script By Akbar Maulana"
+echo "Script By SaniVPN"
