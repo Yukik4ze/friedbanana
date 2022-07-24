@@ -20,7 +20,7 @@ echo -e "${NC}${GREEN}Diijinkan...${NC}"
 else
 echo -e "${NC}${RED}Tidak Diijinkan${NC}";
 #
-echo -e "${NC}${LIGHT}Remade by : thethemythwashere"
+echo -e "${NC}${LIGHT}Script by : thethemythwashere"
 exit 0
 fi
 #Optimasi Speed By SaniVPN
