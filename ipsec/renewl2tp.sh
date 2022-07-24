@@ -16,9 +16,9 @@ MYIP=$(wget -qO- ipinfo.io/ip);
 echo "Memeriksa VPS"
 IZIN=$( curl https://raw.githubusercontent.com/Yukik4ze/perizinan/main/ipvps.txt | grep $MYIP )
 if [ $MYIP = $MYIP ]; then
-echo -e "${NC}${GREEN}Permisi Diterima...${NC}"
+echo -e "${NC}${GREEN}Diijinkan...${NC}"
 else
-echo -e "${NC}${RED}Permisi Ditolak${NC}";
+echo -e "${NC}${RED}Tidak Diijinkan${NC}";
 #
 echo -e "${NC}${LIGHT}Remade by : thethemythwashere"
 exit 0
@@ -45,7 +45,7 @@ NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/var/lib/sanistorevpn/data-user-l2tp")
 			read -rp "Pilih satu klien [1-${NUMBER_OF_CLIENTS}]: " CLIENT_NUMBER
 		fi
 	done
-read -p "Kadaluarsa : (Hari) : " masaaktif
+read -p "Kadaluarsa    : (Hari) : " masaaktif
 user=$(grep -E "^### " "/var/lib/sanistorevpn/data-user-l2tp" | cut -d ' ' -f 2 | sed -n "${CLIENT_NUMBER}"p)
 exp=$(grep -E "^### " "/var/lib/sanistorevpn/data-user-l2tp" | cut -d ' ' -f 3 | sed -n "${CLIENT_NUMBER}"p)
 now=$(date +%Y-%m-%d)
@@ -60,7 +60,7 @@ echo ""
 echo "=========================="
 echo "   L2TP Account Renewed   "
 echo "=========================="
-echo "Username   : $user"
-echo "Kadaluarsa : $exp4"
+echo "Nama Pengguna : $user"
+echo "Kadaluarsa    : $exp4"
 echo "=========================="
 echo "Script By SaniVPN"

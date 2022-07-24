@@ -16,9 +16,9 @@ MYIP=$(wget -qO- ipinfo.io/ip);
 echo "Memeriksa VPS"
 IZIN=$( curl https://raw.githubusercontent.com/Yukik4ze/perizinan/main/ipvps.txt | grep $MYIP )
 if [ $MYIP = $MYIP ]; then
-echo -e "${NC}${GREEN}Permisi Diterima...${NC}"
+echo -e "${NC}${GREEN}Diijinkan...${NC}"
 else
-echo -e "${NC}${RED}Permisi Ditolak${NC}";
+echo -e "${NC}${RED}Tidak Diijinkan${NC}";
 #
 echo -e "${NC}${LIGHT}Remade by : thethemythwashere"
 exit 0
@@ -42,7 +42,7 @@ until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
 			exit 1
 		fi
 	done
-read -p "Kadaluarsa : (Hari) : " masaaktif
+read -p "Kadaluarsa    : (Hari) : " masaaktif
 sed -i '/"'""$uuid""'"$/a\,"'""$user""'"' /etc/trojan-go/config.json
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 hariini=`date -d "0 days" +"%Y-%m-%d"`

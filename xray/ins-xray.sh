@@ -26,24 +26,24 @@ chronyc sourcestats -v
 chronyc tracking -v
 date
 
-# / / Ambil Xray Core Version Terbaru
+# / / Ambil XRAY Core Versi Terbaru
 latest_version="$(curl -s https://api.github.com/repos/XTLS/Xray-core/releases | grep tag_name | sed -E 's/.*"v(.*)".*/\1/' | head -n 1)"
 
-# / / Installation Xray Core
+# / / Instalasi XRAY Core
 xraycore_link="https://github.com/XTLS/Xray-core/releases/download/v$latest_version/xray-linux-64.zip"
 
-# / / Make Main Directory
+# / / Buat direktori utama
 mkdir -p /usr/bin/xray
 mkdir -p /etc/xray
 
-# / / Unzip Xray Linux 64
+# / / Unzip XRAY Linux 64
 cd `mktemp -d`
 curl -sL "$xraycore_link" -o xray.zip
 unzip -q xray.zip && rm -rf xray.zip
 mv xray /usr/local/bin/xray
 chmod +x /usr/local/bin/xray
 
-# Make Folder XRay
+# Buat Folder XRAY
 mkdir -p /var/log/xray/
 
 sudo lsof -t -i tcp:80 -s tcp:listen | sudo xargs kill
@@ -64,11 +64,11 @@ uuid4=$(cat /proc/sys/kernel/random/uuid)
 uuid5=$(cat /proc/sys/kernel/random/uuid)
 uuid6=$(cat /proc/sys/kernel/random/uuid)
 
-# // Certificate File
+# // Berkas Sertifikat
 path_crt="/etc/xray/xray.crt"
 path_key="/etc/xray/xray.key"
 
-# Buat Config Xray
+# Buat Konfigurasi XRAY
 cat > /etc/xray/config.json << END
 {
   "log": {
@@ -337,7 +337,7 @@ cat > /etc/xray/config.json << END
 }
 END
 
-# / / Installation Xray Service
+# / / Instalasi XRAY Service
 cat > /etc/systemd/system/xray.service << END
 [Unit]
 Description=Xray Service By Akbar Maulana
@@ -360,8 +360,8 @@ END
 
 # // Enable & Start Service
 # Accept port Xray
-iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 8443 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m udp -p udp --dport 8443 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 443 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m udp -p udp --dport 443 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m udp -p udp --dport 80 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 2083 -j ACCEPT

@@ -16,9 +16,9 @@ MYIP=$(wget -qO- ipinfo.io/ip);
 echo "Memeriksa VPS"
 IZIN=$( curl https://raw.githubusercontent.com/Yukik4ze/perizinan/main/ipvps.txt | grep $MYIP )
 if [ $MYIP = $MYIP ]; then
-echo -e "${NC}${GREEN}Permisi Diterima...${NC}"
+echo -e "${NC}${GREEN}Diijinkan...${NC}"
 else
-echo -e "${NC}${RED}Permisi Ditolak${NC}";
+echo -e "${NC}${RED}Tidak Diijinkan${NC}";
 #
 echo -e "${NC}${LIGHT}Remade by : thethemythwashere"
 exit 0

@@ -16,9 +16,9 @@ MYIP=$(wget -qO- ipinfo.io/ip);
 echo "Memeriksa VPS"
 IZIN=$( curl https://raw.githubusercontent.com/Yukik4ze/perizinan/main/ipvps.txt | grep $MYIP )
 if [ $MYIP = $MYIP ]; then
-echo -e "${NC}${GREEN}Permisi Diterima...${NC}"
+echo -e "${NC}${GREEN}Diijinkan...${NC}"
 else
-echo -e "${NC}${RED}Permisi Ditolak${NC}";
+echo -e "${NC}${RED}Tidak Diijinkan${NC}";
 #
 echo -e "${NC}${LIGHT}Remade by : thethemythwashere"
 exit 0
@@ -38,7 +38,7 @@ domain=$(cat /etc/xray/domain)
 else
 domain=$IP2
 fi
-read -p "Kadaluarsa : (Hari) : " masaaktif
+read -p "Kadaluarsa    : (Hari) : " masaaktif
 hariini=`date -d "0 days" +"%Y-%m-%d"`
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 lastport=$(cat /usr/local/shadowsocksr/mudb.json | grep '"port": ' | tail -n1 | awk '{print $2}' | cut -d "," -f 1 | cut -d ":" -f 1 )
