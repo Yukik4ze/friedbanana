@@ -23,7 +23,7 @@ echo -e "${NC}${RED}Tidak Diijinkan${NC}";
 echo -e "${NC}${LIGHT}Remade by : thethemythwashere"
 exit 0
 fi
-#Optimasi Speed By Akbar Maulana
+#Optimasi Speed By SaniVPN
 Add_To_New_Line(){
 	if [ "$(tail -n1 $1 | wc -l)" == "0"  ];then
 		echo "" >> "$1"

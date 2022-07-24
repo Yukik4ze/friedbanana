@@ -23,7 +23,7 @@ echo -e "${NC}${RED}Tidak Diijinkan${NC}";
 echo -e "${NC}${LIGHT}Remade by : thethemythwashere"
 exit 0
 fi
-# By Akbar Maulana
+# By SaniVPN
 # ==================================================
 # Link Hosting Kalian
 sanivpn="raw.githubusercontent.com/Yukik4ze/scriptvps/main/ssh"

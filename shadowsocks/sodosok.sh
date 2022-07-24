@@ -1,5 +1,5 @@
 #!/bin/bash
-#shadowsocks-libev obfs install by Akbar Maulana
+#shadowsocks-libev obfs install By SaniVPN
 # Oh Yeah! : thethemythwashere
 # ==========================================
 # Color

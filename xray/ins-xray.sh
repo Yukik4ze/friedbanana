@@ -78,7 +78,7 @@ cat > /etc/xray/config.json << END
   },
   "inbounds": [
     {
-      "port": 8443,
+      "port": 443,
       "protocol": "vmess",
       "settings": {
         "clients": [
@@ -149,7 +149,7 @@ cat > /etc/xray/config.json << END
       }
     },
     {
-      "port": 8443,
+      "port": 443,
       "protocol": "vless",
       "settings": {
         "clients": [
@@ -227,7 +227,7 @@ cat > /etc/xray/config.json << END
       }
     },
     {
-      "port": 2083,
+      "port": 443,
       "protocol": "trojan",
       "settings": {
         "clients": [
@@ -340,7 +340,7 @@ END
 # / / Instalasi XRAY Service
 cat > /etc/systemd/system/xray.service << END
 [Unit]
-Description=Xray Service By Akbar Maulana
+Description=XRAY Service By SaniVPN
 Documentation=thethemythwashere
 After=network.target nss-lookup.target
 
@@ -358,14 +358,14 @@ WantedBy=multi-user.target
 END
 
 
-# // Enable & Start Service
-# Accept port Xray
+# // Aktifkan dan Mulai Layanan
+# Terima Port XRAY
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 443 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m udp -p udp --dport 443 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m udp -p udp --dport 80 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 2083 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m udp -p udp --dport 2083 -j ACCEPT
+#iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 2083 -j ACCEPT (untuk trojan jika dibutuhkan)
+#iptables -I INPUT -m state --state NEW -m udp -p udp --dport 2083 -j ACCEPT (untuk trojan jika dibutuhkan)
 iptables-save > /etc/iptables.up.rules
 iptables-restore -t < /etc/iptables.up.rules
 netfilter-persistent save
@@ -376,7 +376,7 @@ systemctl start xray.service
 systemctl enable xray.service
 systemctl restart xray.service
 
-# Install Trojan Go
+# Pasang Trojan Go
 latest_version="$(curl -s "https://api.github.com/repos/p4gefau1t/trojan-go/releases" | grep tag_name | sed -E 's/.*"v(.*)".*/\1/' | head -n 1)"
 trojango_link="https://github.com/p4gefau1t/trojan-go/releases/download/v${latest_version}/trojan-go-linux-amd64.zip"
 mkdir -p "/usr/bin/trojan-go"
@@ -395,7 +395,7 @@ cat > /etc/trojan-go/config.json << END
 {
   "run_type": "server",
   "local_addr": "0.0.0.0",
-  "local_port": 2087,
+  "local_port": 443,
   "remote_addr": "127.0.0.1",
   "remote_port": 89,
   "log_level": 1,
@@ -455,10 +455,10 @@ cat > /etc/trojan-go/config.json << END
 }
 END
 
-# Installing Trojan Go Service
+# Memasang Trojan Go Service
 cat > /etc/systemd/system/trojan-go.service << END
 [Unit]
-Description=Trojan-Go Service By Akbar Maulana
+Description=Trojan-Go Service By SaniVPN
 Documentation=thethemythwashere
 After=network.target nss-lookup.target
 
@@ -481,8 +481,10 @@ $uuid
 END
 
 # restart
-iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 2086 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m udp -p udp --dport 2087 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 443 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m udp -p udp --dport 443 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m udp -p udp --dport 80 -j ACCEPT
 iptables-save > /etc/iptables.up.rules
 iptables-restore -t < /etc/iptables.up.rules
 netfilter-persistent save
