@@ -29,7 +29,7 @@ read -e -p "Username : " ssr_user
 CLIENT_EXISTS=$(grep -w $ssr_user /usr/local/shadowsocksr/akun.conf | wc -l)
 if [[ ${CLIENT_EXISTS} == '1' ]]; then
 echo ""
-echo -e "Username ${RED}${ssr_user}${NC} Already On VPS Please Choose Another"
+echo -e "Username ${RED}${ssr_user}${NC} Sudah Di VPS Silakan Pilih Yang Lain"
 exit 1
 fi
 source /var/lib/sanistorevpn/ipvps.conf

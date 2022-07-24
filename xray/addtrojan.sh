@@ -37,7 +37,7 @@ until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
 
 		if [[ ${user_EXISTS} == '1' ]]; then
 			echo ""
-			echo -e "Username ${RED}${user}${NC} Already On VPS Please Choose Another"
+			echo -e "Username ${RED}${user}${NC} Sudah Di VPS Silakan Pilih Yang Lain"
 			exit 1
 		fi
 	done
@@ -51,15 +51,15 @@ trojanlink="trojan://${user}@${domain}:${tr}"
 service cron restart
 clear
 echo -e ""
-echo -e "======-XRAYS/TROJAN-======"
-echo -e "Remarks  : ${user}"
+echo -e "======---XRAYS [TROJAN]---======"
+echo -e "Username : ${user}"
 echo -e "IP/Host  : ${MYIP}"
-echo -e "Address  : ${domain}"
+echo -e "Domain   : ${domain}"
 echo -e "Port     : ${tr}"
 echo -e "Key      : ${user}"
 echo -e "Created  : $hariini"
-echo -e "Kadaluarsa    : $exp"
-echo -e "=========================="
+echo -e "Expired  : $exp"
+echo -e "================================"
 echo -e "Link TR  : ${trojanlink}"
-echo -e "=========================="
-echo -e "Script By SaniVPN"
+echo -e "================================"
+echo -e "Premium By SaniVPN"

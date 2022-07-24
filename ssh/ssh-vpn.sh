@@ -40,7 +40,7 @@ locality=Indonesia
 organization=sanistorevpn
 organizationalunit=sanistorevpn
 commonname=sanistorevpn
-email=akbarssh21@gmail.com
+email=Yukik4ze@gmail.com
 
 # simple password minimal
 wget -O /etc/pam.d/common-password "https://${sanivpn}/password"

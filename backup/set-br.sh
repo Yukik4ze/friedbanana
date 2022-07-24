@@ -36,9 +36,9 @@ account default
 host smtp.gmail.com
 port 587
 auth on
-user bckupvpns@gmail.com
-from bckupvpns@gmail.com
-password Yangbaru1 
+user pengguna4430@gmail.com
+from pengguna4430@gmail.com
+password dd77qq88dd 
 logfile ~/.msmtp.log
 EOF
 chown -R www-data:www-data /etc/msmtprc

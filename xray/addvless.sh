@@ -38,7 +38,7 @@ until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 
 		if [[ ${CLIENT_EXISTS} == '1' ]]; then
 			echo ""
-			echo -e "Username ${RED}${user}${NC} Already On VPS Please Choose Another"
+			echo -e "Username ${RED}${user}${NC} Sudah Di VPS Silakan Pilih Yang Lain"
 			exit 1
 		fi
 	done
@@ -56,10 +56,10 @@ systemctl restart xray.service
 service cron restart
 clear
 echo -e ""
-echo -e "======-XRAYS/VLESS-======"
-echo -e "Remarks     : ${user}"
+echo -e "======---XRAYS [VLESS]---======"
+echo -e "Username    : ${user}"
 echo -e "IP/Host     : ${MYIP}"
-echo -e "Address     : ${domain}"
+echo -e "Domain      : ${domain}"
 echo -e "Port TLS    : $tls"
 echo -e "Port No TLS : $nontls"
 echo -e "User ID     : ${uuid}"
@@ -68,9 +68,9 @@ echo -e "Network     : ws"
 echo -e "Path        : /vless/"
 echo -e "Created     : $hariini"
 echo -e "Expired     : $exp"
-echo -e "========================="
+echo -e "==============================="
 echo -e "Link TLS    : ${xrayvless1}"
-echo -e "========================="
+echo -e "==============================="
 echo -e "Link No TLS : ${xrayvless2}"
-echo -e "========================="
-echo -e "Script By SaniVPN"
+echo -e "==============================="
+echo -e "Premium By SaniVPN"

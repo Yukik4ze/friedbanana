@@ -46,7 +46,7 @@ until [[ ${CLIENT_NAME} =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 
 	if [[ ${CLIENT_EXISTS} == '1' ]]; then
 		echo ""
-		echo -e "Username ${RED}${CLIENT_NAME}${NC} Already On VPS Please Choose Another"
+		echo -e "Username ${RED}${CLIENT_NAME}${NC} Sudah Di VPS Silakan Pilih Yang Lain"
 		exit 1
 	fi
 done

@@ -38,7 +38,7 @@ until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
 
 		if [[ ${user_EXISTS} == '1' ]]; then
 			echo ""
-			echo -e "Username ${RED}${user}${NC} Already On VPS Please Choose Another"
+			echo -e "Username ${RED}${user}${NC} Sudah Di VPS Silakan Pilih Yang Lain"
 			exit 1
 		fi
 	done

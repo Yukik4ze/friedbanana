@@ -33,10 +33,10 @@ NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/etc/xray/config.json")
 
 	clear
 	echo ""
-	echo " Select the existing client you want to remove"
+	echo " Pilih klien yang ada yang ingin Anda hapus"
 	echo " Tekan CTRL+C untuk kembali"
 	echo " ==============================="
-	echo "     No  Expired   User"
+	echo "     Tidak Ada Pengguna yang Kedaluwarsa"
 	grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 2-3 | nl -s ') '
 	until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
 		if [[ ${CLIENT_NUMBER} == '1' ]]; then

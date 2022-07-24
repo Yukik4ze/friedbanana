@@ -55,7 +55,7 @@ locality=Indonesia
 organization=sanistorevpn
 organizationalunit=sanistorevpn
 commonname=sanistorevpn
-email=akbarssh21@gmail.com
+email=Yukik4ze@gmail.com
 
 #install sstp
 apt-get install -y build-essential cmake gcc linux-headers-`uname -r` git libpcre3-dev libssl-dev liblua5.1-0-dev ppp

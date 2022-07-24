@@ -38,7 +38,7 @@ source /etc/wireguard/params
 	echo "Select an existing client that you want to renew"
 	echo " Tekan CTRL+C untuk kembali"
 	echo -e "==============================="
-	echo "     No  Expired   User"
+	echo "     Tidak Ada Pengguna yang Kedaluwarsa"
 	grep -E "^### Client" "/etc/wireguard/$SERVER_WG_NIC.conf" | cut -d ' ' -f 3-4 | nl -s ') '
 	until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
 		if [[ ${CLIENT_NUMBER} == '1' ]]; then
