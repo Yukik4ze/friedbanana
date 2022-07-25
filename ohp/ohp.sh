@@ -109,22 +109,22 @@ sleep 0.5
 printf 'CHECKING LISTENING PORT\n'
 if [ -n "$(ss -tupln | grep ohpserver | grep -w 8181)" ]
 then
-	echo 'SSH OHP Redirection Running'
+	echo 'Pengalihan SSH OHP Berjalan'
 else
-	echo 'SSH OHP Redirection Not Found, please check manually'
+	echo 'Pengalihan SSH OHP Tidak Ditemukan, silakan periksa secara manual'
 fi
 sleep 0.5
 if [ -n "$(ss -tupln | grep ohpserver | grep -w 8282)" ]
 then
-	echo 'Dropbear OHP Redirection Running'
+	echo 'Dropbear OHP Redirection Menjalankan'
 else
-	echo 'Dropbear OHP Redirection Not Found, please check manually'
+	echo 'Dropbear OHP Redirection Tidak Ditemukan, silakan periksa secara manual'
 fi
 sleep 0.5
 if [ -n "$(ss -tupln | grep ohpserver | grep -w 8383)" ]
 then
-	echo 'OpenVPN OHP Redirection Running'
+	echo 'OpenVPN OHP Redirection Berjalan'
 else
-	echo 'OpenVPN OHP Redirection Not Found, please check manually'
+	echo 'OpenVPN OHP Redirection Tidak Ditemukan, silakan periksa secara manual'
 fi
 sleep 0.5

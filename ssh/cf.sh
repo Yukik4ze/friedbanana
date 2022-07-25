@@ -13,7 +13,7 @@ LIGHT='\033[0;37m'
 # ==========================================
 # Persiapan VPS
 clear
-read -rp "Input Your Domain For This Server :" -e SUB_DOMAIN
+read -rp "Masukkan Domain Anda Untuk Server Ini :" -e SUB_DOMAIN
 echo "Host : $SUB_DOMAIN"
 echo $SUB_DOMAIN > /root/domain
 # / / Make Main Directory

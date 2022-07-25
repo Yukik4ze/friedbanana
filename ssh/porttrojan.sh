@@ -27,12 +27,12 @@ clear
 tr="$(cat ~/log-install.txt | grep -w "Trojan" | cut -d: -f2|sed 's/ //g')"
 echo -e "======================================"
 echo -e ""
-echo -e "Change Port $tr"
+echo -e "Ubah Port $tr"
 echo -e ""
 echo -e "======================================"
-read -p "New Port Trojan : " tr2
+read -p "Port Trojan Baru : " tr2
 if [ -z $tr2 ]; then
-echo "Please Input Port"
+echo "Silahkan Masukan Port"
 exit 0
 fi
 cek=$(netstat -nutlp | grep -w $tr2)
@@ -48,7 +48,7 @@ iptables-restore -t < /etc/iptables.up.rules
 netfilter-persistent save > /dev/null
 netfilter-persistent reload > /dev/null
 systemctl restart xray.service > /dev/null
-echo -e "\e[032;1mPort $tr2 modified successfully\e[0m"
+echo -e "\e[032;1mModifikasi Port $tr2 Berhasil\e[0m"
 else
-echo "Port $tr2 is used"
+echo "Port $tr2 Telah Digunakan"
 fi

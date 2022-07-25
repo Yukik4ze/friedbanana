@@ -30,12 +30,12 @@ Error="${Red_font_prefix}[Not Installed]${Font_color_suffix}"
 cek=$(netstat -ntlp | grep 10000 | awk '{print $7}' | cut -d'/' -f2)
 function install () {
 IP=$(wget -qO- ifconfig.co);
-echo " Adding Repositori Webmin"
+echo " Menambahkan Repositori Webmin"
 sh -c 'echo "deb http://download.webmin.com/download/repository sarge contrib" > /etc/apt/sources.list.d/webmin.list'
 apt install gnupg gnupg1 gnupg2 -y
 wget http://www.webmin.com/jcameron-key.asc
 apt-key add jcameron-key.asc
-echo " Start Install Webmin"
+echo " Mulai Pasang Webmin"
 clear
 sleep 0.5
 apt update > /dev/null 2>&1
@@ -45,11 +45,11 @@ sed -i 's/ssl=1/ssl=0/g' /etc/webmin/miniserv.conf
 rm -f /root/jcameron-key.asc
 clear
 echo ""
-echo "======================="
-echo "  Done Install Webmin  "
-echo "======================="
+echo "========================="
+echo "  Selesai Instal Webmin  "
+echo "========================="
 echo "http://$IP:10000"
-echo "======================="
+echo "========================="
 echo "Script By SaniVPN"
 }
 function restart () {
@@ -65,18 +65,18 @@ echo "======================="
 echo "Script By SaniVPN"
 }
 function uninstall () {
-echo " Removing Repositori Webmin"
+echo " Menghapus Repositori Webmin"
 rm -f /etc/apt/sources.list.d/webmin.list
 apt update > /dev/null 2>&1
-echo " Start Uninstall Webmin"
+echo " Mulai Hapus Instalasi Webmin"
 clear
 sleep 0.5
 apt autoremove --purge webmin -y > /dev/null 2>&1
 clear
 echo ""
-echo "========================="
-echo "  Done Uninstall Webmin  "
-echo "========================="
+echo "=========================="
+echo "  Selesai Melepas Webmin  "
+echo "=========================="
 echo "Script By SaniVPN"
 }
 if [[ "$cek" = "perl" ]]; then
@@ -87,13 +87,13 @@ fi
 clear
 echo -e ""
 echo -e "================================"
-echo -e "   Webmin Menu $sts        "
+echo -e "        Menu Webmin $sts        "
 echo -e "================================"
-echo -e "1.Install Webmin"
-echo -e "2.Restart Webmin"
-echo -e "3.Uninstall Webmin"
+echo -e "1.Pasang Webmin"
+echo -e "2.Mulai Ulang Webmin"
+echo -e "3.Copot Webmin"
 echo -e "================================"
-read -rp "Please Enter The Correct Number : " -e num
+read -rp "Silahkan Masukan Nomor yang Benar : " -e num
 if [[ "$num" = "1" ]]; then
 install
 elif [[ "$num" = "2" ]]; then
@@ -102,6 +102,6 @@ elif [[ "$num" = "3" ]]; then
 uninstall
 else
 clear
-echo " You Entered The Wrong Number"
+echo " Anda Memasukkan Nomor Yang Salah"
 menu
 fi

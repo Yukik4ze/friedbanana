@@ -28,12 +28,12 @@ clear
 wg="$(cat ~/log-install.txt | grep -i Wireguard | cut -d: -f2|sed 's/ //g')"
 echo -e "======================================"
 echo -e ""
-echo -e "Change Port $wg"
+echo -e "Ubah Port $wg"
 echo -e ""
 echo -e "======================================"
-read -p "New Port Wireguard : " wg2
+read -p "Port Baru Wireguard : " wg2
 if [ -z $wg2 ]; then
-echo "Please Input Port"
+echo "Silahkan Masukan Port"
 exit 0
 fi
 cek=$(netstat -nutlp | grep -w $wg2)
@@ -48,7 +48,7 @@ iptables-restore -t < /etc/iptables.up.rules
 netfilter-persistent save > /dev/null
 netfilter-persistent reload > /dev/null
 systemctl reload wg-quick@wg0 > /dev/null
-echo -e "\e[032;1mPort $wg2 modified successfully\e[0m"
+echo -e "\e[032;1mModifikasi Port $wg2 Berhasil\e[0m"
 else
-echo "Port $wg2 is used"
+echo "Port $wg2 Telah Digunakan"
 fi

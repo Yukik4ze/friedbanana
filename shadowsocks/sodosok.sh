@@ -100,7 +100,7 @@ cat > /etc/shadowsocks-libev.json <<END
     "mode":"tcp_and_udp",
     "fast_open":true,
     "plugin":"/usr/bin/obfs-local",
-    "plugin_opts":"obfs=tls;failover=127.0.0.1:1443;fast-open"
+    "plugin_opts":"obfs=tls;failover=127.0.0.1:443;fast-open"
 }
 END
 chmod +x /etc/shadowsocks-libev.json
@@ -110,8 +110,12 @@ echo -e "">>"/etc/shadowsocks-libev/akun.conf"
 
 echo "#############################################"
 echo "Menambahkan Perintah Shadowsocks-libev"
-iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 2443:3543 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m udp -p udp --dport 2443:3543 -j ACCEPT
+#old iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 2443:3543 -j ACCEPT
+#old iptables -I INPUT -m state --state NEW -m udp -p tcp --dport 2443:3543 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m udp -p tcp --dport 443 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m udp -p udp --dport 443 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m udp -p udp --dport 80 -j ACCEPT
 iptables-save > /etc/iptables.up.rules
 ip6tables-save > /etc/ip6tables.up.rules
 cd /usr/bin

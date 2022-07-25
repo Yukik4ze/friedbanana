@@ -155,11 +155,11 @@ iptables-restore -t < /etc/iptables.up.rules
 netfilter-persistent save
 netfilter-persistent reload
 
-# Restart service openvpn
+# Mulai ulang layanan openvpn
 systemctl enable openvpn
 systemctl start openvpn
 /etc/init.d/openvpn restart
 
-# Delete script
+# Hapus script
 history -c
 rm -f /root/vpn.sh

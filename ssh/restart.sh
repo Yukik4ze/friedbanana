@@ -13,7 +13,7 @@ LIGHT='\033[0;37m'
 # ==========================================
 clear
 echo -e ""
-echo -e "Starting Restart All Service"
+echo -e "Memulai Ulang Semua Layanan"
 sleep 2
 systemctl restart ssrmu
 systemctl restart ws-tls
@@ -43,4 +43,4 @@ systemctl restart trojan-go
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 1000
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 1000
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 1000
-echo -e "Restart All Service Berhasil"
+echo -e "Memulai Ulang Semua Layanan Berhasil"

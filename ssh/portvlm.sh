@@ -28,9 +28,9 @@ tls="$(cat ~/log-install.txt | grep -w "Vmess TLS" | cut -d: -f2|sed 's/ //g')"
 none="$(cat ~/log-install.txt | grep -w "Vmess None TLS" | cut -d: -f2|sed 's/ //g')"
 echo -e "======================================"
 echo -e ""
-echo -e "[1]. Change Port Vmess TLS $tls"
-echo -e "[2]. Change Port Vmess None TLS $none"
-echo -e "[3]. Exit"
+echo -e "[1]. Ubah Port Vmess TLS $tls"
+echo -e "[2]. Ubah Port Vmess Non TLS $none"
+echo -e "[3]. Keluar"
 echo -e ""
 echo -e "======================================"
 echo -e ""
@@ -38,9 +38,9 @@ read -p "Pilih Dari Opsi [ 1-3 ] : " prot
 echo -e ""
 case $prot in
 1)
-read -p "New Port Vmess TLS : " tls1
+read -p "Port Vmess TLS Baru : " tls1
 if [ -z $tls1 ]; then
-echo "Please Input Port"
+echo "Silahkan Masukan Port"
 exit 0
 fi
 cek=$(netstat -nutlp | grep -w $tls1)
@@ -57,16 +57,16 @@ iptables-restore -t < /etc/iptables.up.rules
 netfilter-persistent save > /dev/null
 netfilter-persistent reload > /dev/null
 systemctl restart xray.service > /dev/null
-echo -e "\e[032;1mPort $tls1 modified successfully\e[0m"
+echo -e "\e[032;1mModifikasi port $tls1 berhasil\e[0m"
 else
-echo "Port $tls1 is used"
+echo "Port $tls1 Telah Digunakan"
 fi
 ;;
 2)
-echo "Input Only 2 Character (eg : 69)"
-read -p "New Port Vmess None TLS : " none1
+echo "Masukkan Hanya 2 Karakter (eg : 69)"
+read -p "Port Vmess Non TLS Baru : " none1
 if [ -z $none1 ]; then
-echo "Please Input Port"
+echo "Silahkan Masukan Port"
 exit 0
 fi
 cek=$(netstat -nutlp | grep -w $none1)
@@ -83,9 +83,9 @@ iptables-restore -t < /etc/iptables.up.rules
 netfilter-persistent save > /dev/null
 netfilter-persistent reload > /dev/null
 systemctl restart xray.service > /dev/null
-echo -e "\e[032;1mPort $none1 modified successfully\e[0m"
+echo -e "\e[032;1mModifikasi Port $none1 Berhasil\e[0m"
 else
-echo "Port $none1 is used"
+echo "Port $none1 Telah Digunakan"
 fi
 ;;
 3)
@@ -93,6 +93,6 @@ exit
 menu
 ;;
 *)
-echo "Please enter an correct number"
+echo "Silakan masukkan nomor yang benar"
 ;;
 esac
