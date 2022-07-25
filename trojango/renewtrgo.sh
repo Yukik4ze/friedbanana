@@ -58,7 +58,7 @@ sed -i "s/### $user $exp/### $user $exp4/g" /etc/trojan-go/akun.conf
 clear
 echo ""
 echo "============================"
-echo "  TrojanGo Account Renewed  "
+echo "  Akun TrojanGo Diperbarui  "
 echo "============================"
 echo "Username : $user"
 echo "Kadaluarsa    : $exp4"

@@ -52,7 +52,7 @@ sed -i '/^'"$user"'/d' /home/sstp/sstp_account
 clear
 echo ""
 echo "=========================="
-echo "   SSTP Account Deleted   "
+echo "   Akun SSTP Dihapus   "
 echo "=========================="
 echo "Nama Pengguna : $user"
 echo "Kadaluarsa    : $exp"

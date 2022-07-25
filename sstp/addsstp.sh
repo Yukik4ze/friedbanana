@@ -38,7 +38,7 @@ until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 
 		if [[ ${CLIENT_EXISTS} == '1' ]]; then
 			echo ""
-			echo -e "Username ${RED}${user}${NC} Sudah Di VPS Silakan Pilih Yang Lain"
+			echo -e "Username ${RED}${user}${NC} Sudah Digunakan Di VPS Silahkan Buat Username Lain"
 			exit 1
 		fi
 	done
@@ -56,13 +56,13 @@ cat <<EOF
 ============================
 SSTP VPN
 ============================
-IP/Host   : $IP
-Domain    : $domain
+IP/Host       : $IP
+Domain        : $domain
 Nama Pengguna : $user
-Password  : $pass
-Port      : $sstp
-Cert      : http://$IP:89/server.crt
-Created   : $hariini
+Password      : $pass
+Port          : $sstp
+Cert          : http://$IP:89/server.crt
+Dibuat        : $hariini
 Kadaluarsa    : $exp
 ============================
 Script By SaniVPN

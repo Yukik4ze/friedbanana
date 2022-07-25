@@ -135,13 +135,14 @@ class ConnectionHandler(threading.Thread):
                 else:
                     self.client.send('HTTP/1.1 403 Forbidden!\r\n\r\n')
             else:
-                print '- No X-Real-Host!'
+                print 
+                '- No X-Real-Host!'
                 self.client.send('HTTP/1.1 400 NoXRealHost!\r\n\r\n')
 
         except Exception as e:
             self.log += ' - error: ' + e.strerror
-            self.server.printLog(self.log)
-	    pass
+            self.server.printLog(self.log) 
+            pass
         finally:
             self.close()
             self.server.removeConn(self)
@@ -199,12 +200,12 @@ class ConnectionHandler(threading.Thread):
                 error = True
             if recv:
                 for in_ in recv:
-		    try:
-                        data = in_.recv(BUFLEN)
+		                try:
+                            data = in_.recv(BUFLEN)
                         if data:
-			    if in_ is self.target:
-				self.client.send(data)
-                            else:
+	                        if in_ is self.target:
+				                        self.client.send(data)
+            else:
                                 while data:
                                     byte = self.target.send(data)
                                     data = data[byte:]
@@ -221,45 +222,53 @@ class ConnectionHandler(threading.Thread):
                 break
 
 
-def print_usage():
-    print 'Usage: proxy.py -p <port>'
-    print '       proxy.py -b <bindAddr> -p <port>'
-    print '       proxy.py -b 0.0.0.0 -p 80'
+        def print_usage():
+            print 
+            'Usage: proxy.py -p <port>'
+            print 
+            '       proxy.py -b <bindAddr> -p <port>'
+            print 
+            '       proxy.py -b 0.0.0.0 -p 80'
 
-def parse_args(argv):
-    global LISTENING_ADDR
-    global LISTENING_PORT
+        def parse_args(argv):
+            global LISTENING_ADDR
+            global LISTENING_PORT
     
-    try:
-        opts, args = getopt.getopt(argv,"hb:p:",["bind=","port="])
-    except getopt.GetoptError:
-        print_usage()
-        sys.exit(2)
-    for opt, arg in opts:
-        if opt == '-h':
-            print_usage()
-            sys.exit()
-        elif opt in ("-b", "--bind"):
-            LISTENING_ADDR = arg
-        elif opt in ("-p", "--port"):
-            LISTENING_PORT = int(arg)
-
-
-def main(host=LISTENING_ADDR, port=LISTENING_PORT):
-    print "\n:-------PythonProxy-------:\n"
-    print "Listening addr: " + LISTENING_ADDR
-    print "Listening port: " + str(LISTENING_PORT) + "\n"
-    print ":-------------------------:\n"
-    server = Server(LISTENING_ADDR, LISTENING_PORT)
-    server.start()
-    while True:
         try:
-            time.sleep(2)
-        except KeyboardInterrupt:
-            print 'Stopping...'
-            server.close()
-            break
+            opts, args = getopt.getopt(argv,"hb:p:",["bind=","port="])
+        except getopt.GetoptError:
+            print_usage()
+            sys.exit(2)
+        for opt, arg in opts:
+            if opt == '-h':
+                print_usage()
+                sys.exit()
+            elif opt in ("-b", "--bind"):
+                LISTENING_ADDR = arg
+            elif opt in ("-p", "--port"):
+                LISTENING_PORT = int(arg)
+
+
+        def main(host=LISTENING_ADDR, port=LISTENING_PORT):
+            print 
+            "\n:-------PythonProxy-------:\n"
+            print 
+            "Listening addr: " + LISTENING_ADDR
+            print 
+            "Listening port: " + str(LISTENING_PORT) + "\n"
+            print 
+            ":-------------------------:\n"
+            server = Server(LISTENING_ADDR, LISTENING_PORT)
+            server.start()
+            while True:
+                try:
+                    time.sleep(2)
+                except KeyboardInterrupt:
+                    print 
+                    'Stopping...'
+                    server.close()
+                    break
 
 #######    parse_args(sys.argv[1:])
-if __name__ == '__main__':
-    main()
+        if __name__ == '__main__':
+            main()

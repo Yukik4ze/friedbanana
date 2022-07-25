@@ -38,7 +38,7 @@ until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 
 		if [[ ${CLIENT_EXISTS} == '1' ]]; then
 			echo ""
-			echo -e "Username ${RED}${user}${NC} Sudah Di VPS Silakan Pilih Yang Lain"
+			echo -e "Username ${RED}${user}${NC} Sudah Digunakan Di VPS Silahkan Buat Username Lain"
 			exit 1
 		fi
 	done
@@ -66,7 +66,7 @@ echo -e "User ID     : ${uuid}"
 echo -e "Encryption  : none"
 echo -e "Network     : ws"
 echo -e "Path        : /vless/"
-echo -e "Created     : $hariini"
+echo -e "Dibuat      : $hariini"
 echo -e "Expired     : $exp"
 echo -e "==============================="
 echo -e "Link TLS    : ${xrayvless1}"

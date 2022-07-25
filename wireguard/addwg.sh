@@ -46,7 +46,7 @@ until [[ ${CLIENT_NAME} =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 
 	if [[ ${CLIENT_EXISTS} == '1' ]]; then
 		echo ""
-		echo -e "Username ${RED}${CLIENT_NAME}${NC} Sudah Di VPS Silakan Pilih Yang Lain"
+		echo -e "Username ${RED}${CLIENT_NAME}${NC} Sudah Digunakan Di VPS Silahkan Buat Username Lain"
 		exit 1
 	fi
 done
@@ -109,7 +109,7 @@ echo -e "Remarks  : $CLIENT_NAME"
 echo -e "IP/Host  : $MYIP"
 echo -e "Domain   : $domain"
 echo -e "Port     : $portwg"
-echo -e "Created  : $hariini"
+echo -e "Dibuat  : $hariini"
 echo -e "Kadaluarsa    : $exp"
 echo -e "==========================="
 echo -e "Link WG  : http://$MYIP:89/$CLIENT_NAME.conf"

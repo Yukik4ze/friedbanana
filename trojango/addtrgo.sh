@@ -38,7 +38,7 @@ until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
 
 		if [[ ${user_EXISTS} == '1' ]]; then
 			echo ""
-			echo -e "Username ${RED}${user}${NC} Sudah Di VPS Silakan Pilih Yang Lain"
+			echo -e "Username ${RED}${user}${NC} Sudah Digunakan Di VPS Silahkan Buat Username Lain"
 			exit 1
 		fi
 	done
@@ -51,17 +51,17 @@ systemctl restart trojan-go.service
 link="trojan-go://${user}@${domain}:${trgo}/?sni=${domain}&type=ws&host=${domain}&path=/trojango&encryption=none#$user"
 clear
 echo -e ""
-echo -e "=======-TROJAN-GO-======="
+echo -e "=======---TROJAN-GO---======="
 echo -e "Remarks    : ${user}"
 echo -e "IP/Host    : ${MYIP}"
-echo -e "Address    : ${domain}"
+echo -e "Domain     : ${domain}"
 echo -e "Port       : ${trgo}"
 echo -e "Key        : ${user}"
 echo -e "Encryption : none"
 echo -e "Path       : /trojango"
-echo -e "Created    : $hariini"
-echo -e "Expired    : $exp"
-echo -e "========================="
-echo -e "Link TrGo  : ${link}"
-echo -e "========================="
+echo -e "Dibuat      : $hariini"
+echo -e "Kadaluarsa    : $exp"
+echo -e "============================="
+echo -e "Link Trojan-Go  : ${link}"
+echo -e "============================="
 echo -e "Script By SaniVPN"

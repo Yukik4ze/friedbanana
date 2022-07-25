@@ -199,18 +199,17 @@ class ConnectionHandler(threading.Thread):
                 error = True
             if recv:
                 for in_ in recv:
-		    try:
+		                try:
                         data = in_.recv(BUFLEN)
-                        if data:
-			    if in_ is self.target:
-				self.client.send(data)
-                            else:
+                if data:
+	                if in_ is self.target:
+				                self.client.send(data)
+                    else:
                                 while data:
                                     byte = self.target.send(data)
                                     data = data[byte:]
-
-                            count = 0
-			else:
+                                count = 0
+                    else:
 			    break
 		    except:
                         error = True

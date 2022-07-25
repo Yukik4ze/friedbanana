@@ -52,12 +52,12 @@ touch /var/lib/sanistorevpn/data-user-sstp
 country=ID
 state=Indonesia
 locality=Indonesia
-organization=sanistorevpn
-organizationalunit=sanistorevpn
-commonname=sanistorevpn
+organization=SanistoreVPN
+organizationalunit=SanistoreVPN
+commonname=SanistoreVPN
 email=Yukik4ze@gmail.com
 
-#install sstp
+#pasang sstp
 apt-get install -y build-essential cmake gcc linux-headers-`uname -r` git libpcre3-dev libssl-dev liblua5.1-0-dev ppp
 git clone https://github.com/accel-ppp/accel-ppp.git /opt/accel-ppp-code
 mkdir /opt/accel-ppp-code/build

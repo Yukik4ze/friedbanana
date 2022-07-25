@@ -37,7 +37,7 @@ until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
 
 		if [[ ${user_EXISTS} == '1' ]]; then
 			echo ""
-			echo -e "Username ${RED}${user}${NC} Sudah Di VPS Silakan Pilih Yang Lain"
+			echo -e "Username ${RED}${user}${NC} Sudah Digunakan Di VPS Silahkan Buat Username Lain"
 			exit 1
 		fi
 	done
@@ -57,7 +57,7 @@ echo -e "IP/Host  : ${MYIP}"
 echo -e "Domain   : ${domain}"
 echo -e "Port     : ${tr}"
 echo -e "Key      : ${user}"
-echo -e "Created  : $hariini"
+echo -e "Dibuat   : $hariini"
 echo -e "Expired  : $exp"
 echo -e "================================"
 echo -e "Link TR  : ${trojanlink}"

@@ -58,7 +58,7 @@ sed -i "s/### $user $exp/### $user $exp4/g" /var/lib/sanistorevpn/data-user-sstp
 clear
 echo ""
 echo "========================"
-echo "  SSTP Account Renewed  "
+echo "  Akun SSTP Diperbarui  "
 echo "========================"
 echo "Nama Pengguna : $user"
 echo "Kadaluarsa    : $exp4"

@@ -41,7 +41,7 @@ until [[ $VPN_USER =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 
 		if [[ ${CLIENT_EXISTS} == '1' ]]; then
 			echo ""
-			echo -e "Username ${RED}${VPN_USER}${NC} Sudah Di VPS Silakan Pilih Yang Lain"
+			echo -e "Username ${RED}${VPN_USER}${NC} Sudah Digunakan Di VPS Silahkan Buat Username Lain"
 			exit 1
 		fi
 	done
@@ -74,7 +74,7 @@ Domain     : $domain
 IPsec PSK  : myvpn
 Nama Pengguna : $VPN_USER
 Password   : $VPN_PASSWORD
-Created    : $hariini
+Dibuat    : $hariini
 Expired    : $exp
 ============================
 Script By SaniVPN

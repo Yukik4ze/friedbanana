@@ -19,7 +19,7 @@
 DEFAULTPIDFILE="/var/run/stunnel.pid"
 DAEMON=/usr/local/SaniVPN/stunnel5
 NAME=stunnel5
-DESC="Stunnel5 Service"
+DESC="Layanan Stunnel5"
 OPTIONS=""
 
 get_opt() {
@@ -64,10 +64,10 @@ startdaemons() {
       status=0
       start_daemon -p "$pidfile" "$DAEMON" $args || status=$?
       if [ "$status" -eq 0 ]; then
-        echo -n "started$warn"
+        echo -n "Dimulai$warn"
       else
-        echo "failed$warn"
-        echo "You should check that you have specified the pid= in you configuration file"
+        echo "Gagal$warn"
+        echo "Anda harus memeriksa apakah Anda telah menentukan pid= dalam file konfigurasi Anda"
         res=1
       fi
     fi
@@ -86,14 +86,14 @@ killdaemons()
     echo -n " $file: "
     pidfile=`get_pidfile $file`
     if [ ! -e "$pidfile" ]; then
-      echo -n "no pid file"
+      echo -n "tidak ada file pid"
     else
       status=0
       killproc -p "$pidfile" "$DAEMON" ${sig:+"$sig"} || status=$?
       if [ "$status" -eq 0 ]; then
-        echo -n 'stopped'
+        echo -n 'Dihentikan'
       else
-        echo -n 'failed'
+        echo -n 'Gagal'
         res=1
       fi
     fi
@@ -111,18 +111,18 @@ querydaemons()
     echo -n " $file: "
     pidfile=`get_pidfile "$file"`
     if [ ! -e "$pidfile" ]; then
-      echo -n 'no pid file'
+      echo -n 'Tidak ada file pid'
       res=1
     else
       status=0
       pidofproc -p "$pidfile" "$DAEMON" >/dev/null || status="$?"
       if [ "$status" = 0 ]; then
-        echo -n 'running'
+        echo -n 'Menjalankan'
       elif [ "$status" = 4 ]; then
-        echo "cannot access the pid file $pidfile"
+        echo "Tidak dapat mengakses file pid $pidfile"
         res=1
       else
-        echo -n 'stopped'
+        echo -n 'Dihentikan'
         res=1
       fi
     fi
@@ -140,31 +140,31 @@ restartrunningdaemons()
     echo -n " $file: "
     pidfile=`get_pidfile "$file"`
     if [ ! -e "$pidfile" ]; then
-      echo -n 'no pid file'
+      echo -n 'Tidak ada file pid'
     else
       status=0
       pidofproc -p "$pidfile" "$DAEMON" >/dev/null || status="$?"
       if [ "$status" = 0 ]; then
-        echo -n 'stopping'
+        echo -n 'Menghentikan'
         killproc -p "$pidfile" "$DAEMON" "$sig" || status="$?"
         if [ "$status" -eq 0 ]; then
-          echo -n ' starting'
+          echo -n ' Memulai'
           args="$file $OPTIONS"
           start_daemon -p "$pidfile" "$DAEMON" $args || status="$?"
           if [ "$status" -eq 0 ]; then
-            echo -n ' started'
+            echo -n ' Dimulai'
           else
-            echo ' failed'
+            echo ' Gagal'
             res=1
           fi
         else
-          echo -n ' failed'
+          echo -n ' Gagal'
           res=1
         fi
       elif [ "$status" = 4 ]; then
-        echo "cannot access the pid file $pidfile"
+        echo "Tidak dapat mengakses file pid $pidfile"
       else
-        echo -n 'stopped'
+        echo -n 'Dihentikan'
       fi
     fi
   done
@@ -196,43 +196,43 @@ set -e
 res=0
 case "$1" in
   start)
-    echo -n "Starting $DESC:"
+    echo -n "Memulai $DESC:"
     startdaemons
     res=$?
     ;;
   stop)
-    echo -n "Stopping $DESC:"
+    echo -n "Menghentikan $DESC:"
     killdaemons
     res=$?
     ;;
   reopen-logs)
-    echo -n "Reopening log files $DESC:"
+    echo -n "Membuka kembali log file $DESC:"
     killdaemons USR1
     res=$?
     ;;
   force-reload|reload)
-    echo -n "Reloading configuration $DESC:"
+    echo -n "Memuat ulang konfigurasi $DESC:"
     killdaemons HUP
     res=$?
     ;;
   restart)
-    echo -n "Restarting $DESC:"
+    echo -n "Memulai ulang $DESC:"
     killdaemons && startdaemons
     res=$?
     ;;
   try-restart)
-    echo -n "Restarting $DESC if running:"
+    echo -n "Memulai ulang $DESC jika berjalan:"
     restartrunningdaemons
     res=$?
     ;;
   status)
-    echo -n "$DESC status:"
+    echo -n "Status $DESC :"
     querydaemons
     res=$?
     ;;
   *)
     N=/etc/init.d/$NAME
-    echo "Usage: $N {start|stop|status|reload|reopen-logs|restart|try-restart} [<stunnel instance>]" >&2
+    echo "Penggunaan: $N {start|stop|status|reload|reopen-logs|restart|try-restart} [<stunnel instance>]" >&2
     res=1
     ;;
 esac

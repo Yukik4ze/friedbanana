@@ -26,9 +26,9 @@ fi
 clear
 echo -n > /tmp/other.txt
 data=( `cat /etc/trojan-go/akun.conf | grep '^###' | cut -d ' ' -f 2`);
-echo "------------------------------------";
-echo "-----=[ Trojan-Go User Login ]=-----";
-echo "------------------------------------";
+echo "----------------------------------------";
+echo "---===[ Pengguna Login Trojan-Go ]===---";
+echo "----------------------------------------";
 for akun in "${data[@]}"
 do
 if [[ -z "$akun" ]]; then
@@ -54,14 +54,14 @@ else
 jum2=$(cat /tmp/iptrojango.txt | nl)
 echo "user : $akun";
 echo "$jum2";
-echo "------------------------------------";
+echo "----------------------------------------";
 fi
 rm -rf /tmp/iptrojango.txt
 done
 oth=$(cat /tmp/other.txt | sort | uniq | nl)
 echo "other";
 echo "$oth";
-echo "------------------------------------";
+echo "----------------------------------------";
 echo "Script By SaniVPN"
 rm -rf /tmp/other.txt
 

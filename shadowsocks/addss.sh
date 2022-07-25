@@ -52,7 +52,7 @@ until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 
 		if [[ ${CLIENT_EXISTS} == '1' ]]; then
 			echo ""
-			echo -e "Username ${RED}${user}${NC} Sudah Di VPS Silakan Pilih Yang Lain"
+			echo -e "Username ${RED}${user}${NC} Sudah Digunakan Di VPS Silahkan Buat Username Lain"
 			exit 1
 		fi
 	done
@@ -113,7 +113,7 @@ echo -e "Port TLS    : $tls"
 echo -e "Port No TLS : $http"
 echo -e "Password    : $user"
 echo -e "Method      : aes-256-cfb"
-echo -e "Created     : $hariini"
+echo -e "Dibuat      : $hariini"
 echo -e "Expired     : $exp"
 echo -e "========================="
 echo -e "Link TLS    : $linkss1"
