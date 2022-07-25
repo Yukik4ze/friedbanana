@@ -45,7 +45,7 @@ echo -e "4. Turn Off AutoKill/MultiLogin"
 echo -e "5. Exit"
 echo -e "=================================="                                                                                                          
 echo -e ""
-read -p "Select From Options [1-4 or x] :  " AutoKill
+read -p "Pilih Dari Opsi [1-4 or x] :  " AutoKill
 read -p "Multilogin Maximum Number Of Allowed: " max
 echo -e ""
 case $AutoKill in

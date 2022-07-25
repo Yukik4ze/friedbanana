@@ -35,7 +35,7 @@ source /etc/wireguard/params
 
 	clear
 	echo ""
-	echo "Select an existing client that you want to renew"
+	echo "Pilih klien yang ada yang ingin Anda perbarui"
 	echo " Tekan CTRL+C untuk kembali"
 	echo -e "==============================="
 	echo "     Tidak Ada Pengguna yang Kedaluwarsa"
@@ -60,7 +60,7 @@ sed -i "s/### Client $user $exp/### Client $user $exp4/g" /etc/wireguard/wg0.con
 clear
 echo ""
 echo "============================="
-echo "  Wireguard Account Renewed  "
+echo "  Akun Wireguard Diperbarui  "
 echo "============================="
 echo "Nama Pengguna : $user"
 echo "Kadaluarsa    : $exp4"

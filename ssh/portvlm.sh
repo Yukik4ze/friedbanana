@@ -34,7 +34,7 @@ echo -e "[3]. Exit"
 echo -e ""
 echo -e "======================================"
 echo -e ""
-read -p "Select From Options [ 1-3 ] : " prot
+read -p "Pilih Dari Opsi [ 1-3 ] : " prot
 echo -e ""
 case $prot in
 1)

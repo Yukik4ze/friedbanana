@@ -28,7 +28,7 @@ echo -e "[9]. Exit"
 echo -e ""
 echo -e "======================================"
 echo -e ""
-read -p "Select From Options [ 1-7 ] : " port
+read -p "Pilih Dari Opsi [ 1-7 ] : " port
 echo -e ""
 case $port in
 1)

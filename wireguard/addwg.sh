@@ -24,7 +24,7 @@ echo -e "${NC}${LIGHT}Script by : thethemythwashere"
 exit 0
 fi
 clear
-# Load params
+# Muat parameter
 source /etc/wireguard/params
 source /var/lib/sanistorevpn/ipvps.conf
 if [[ "$IP" = "" ]]; then
@@ -61,7 +61,7 @@ else
 CLIENT_ADDRESS="10.66.66.$((LASTIP+1))"
 fi
 
-# Adguard DNS by default
+# Adguard DNS secara default
 CLIENT_DNS_1="176.103.130.130"
 
 CLIENT_DNS_2="176.103.130.131"
@@ -70,12 +70,12 @@ read -p "Kadaluarsa    : (Hari) : " masaaktif
 hariini=`date -d "0 days" +"%Y-%m-%d"`
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 
-# Generate key pair for the client
+# Hasilkan pasangan kunci untuk klien
 CLIENT_PRIV_KEY=$(wg genkey)
 CLIENT_PUB_KEY=$(echo "$CLIENT_PRIV_KEY" | wg pubkey)
 CLIENT_PRE_SHARED_KEY=$(wg genpsk)
 
-# Create client file and add the server as a peer
+# Buat file klien dan tambahkan server sebagai peer
 echo "[Interface]
 PrivateKey = $CLIENT_PRIV_KEY
 Address = $CLIENT_ADDRESS/24
@@ -87,7 +87,7 @@ PresharedKey = $CLIENT_PRE_SHARED_KEY
 Endpoint = $ENDPOINT
 AllowedIPs = 0.0.0.0/0,::/0" >>"$HOME/$SERVER_WG_NIC-client-$CLIENT_NAME.conf"
 
-# Add the client as a peer to the server
+# Tambahkan klien sebagai rekan ke server
 echo -e "### Client $CLIENT_NAME $exp
 [Peer]
 PublicKey = $CLIENT_PUB_KEY
@@ -104,15 +104,15 @@ sleep 0.5
 echo Generate PresharedKey
 clear
 echo -e ""
-echo -e "======-WIREGUARD-======"
+echo -e "======---WIREGUARD---======"
 echo -e "Remarks  : $CLIENT_NAME"
 echo -e "IP/Host  : $MYIP"
 echo -e "Domain   : $domain"
 echo -e "Port     : $portwg"
 echo -e "Created  : $hariini"
 echo -e "Kadaluarsa    : $exp"
-echo -e "======================="
+echo -e "==========================="
 echo -e "Link WG  : http://$MYIP:89/$CLIENT_NAME.conf"
-echo -e "======================="
+echo -e "==========================="
 echo -e "Script By SaniVPN"
 rm -f /root/wg0-client-$CLIENT_NAME.conf

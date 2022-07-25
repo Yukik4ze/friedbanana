@@ -1,5 +1,5 @@
 #!/bin/bash
-#warna
+# Port SSH WS nonTLS
 # ==========================================
 # Color
 RED='\033[0;31m'
@@ -19,12 +19,12 @@ ws="$(cat ~/log-install.txt | grep -w "Websocket None TLS" | cut -d: -f2|sed 's/
 #input port untuk pengganti
 echo -e "======================================"
 echo -e ""
-echo -e "Change Port $ws"
+echo -e "Ganti Port $ws"
 echo -e ""
 echo -e "======================================"
-read -p "New Port SSH WS : " ws2
+read -p "Port SSH WS nonTLS Baru : " ws2
 if [ -z $ws2 ]; then
-echo "Please Input Port"
+echo "Silahkan Masukan Port"
 exit 0
 fi
 cek=$(netstat -nutlp | grep -w $ws2)
@@ -52,9 +52,9 @@ systemctl restart ws-nontls > /dev/null
 
 #ganti port info
 
-echo -e "\e[032;1mPort $ws2 modified successfully\e[0m"
+echo -e "\e[032;1mPort $ws2 berhasil dimodifikasi\e[0m"
 else
-echo "Port $ws2 is used"
+echo "Port $ws2 telah dipakai"
 fi
 
 

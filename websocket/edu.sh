@@ -31,7 +31,7 @@ sanivpn="raw.githubusercontent.com/Yukik4ze/scriptvps/main/websocket"
 wget -q -O /usr/local/bin/ws-nontls https://${sanivpn}/websocket.py
 chmod +x /usr/local/bin/ws-nontls
 
-# Installing Service
+# Memasang Servis
 cat > /etc/systemd/system/ws-nontls.service << END
 [Unit]
 Description=Python Proxy Mod By SaniVPN
@@ -59,11 +59,11 @@ systemctl restart ws-nontls
 wget -q -O /usr/local/bin/ws-ovpn https://${sanivpn}/ws-ovpn.py
 chmod +x /usr/local/bin/ws-ovpn
 
-# Installing Service
+# Memasang Servis
 cat > /etc/systemd/system/ws-ovpn.service << END
 [Unit]
-Description=Python Proxy Mod By LamVpn
-Documentation=https://t.me/LamVpn
+Description=Python Proxy Mod By SaniVPN
+Documentation=thethemythwashere
 After=network.target nss-lookup.target
 
 [Service]
@@ -90,8 +90,8 @@ chmod +x /usr/local/bin/ws-tls
 # Installing Service
 cat > /etc/systemd/system/ws-tls.service << END
 [Unit]
-Description=Python Proxy Mod By geovpn
-Documentation=https://t.me/geovpn
+Description=Python Proxy Mod By SaniVPN
+Documentation=thethemythwashere
 After=network.target nss-lookup.target
 
 [Service]

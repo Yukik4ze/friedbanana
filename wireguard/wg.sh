@@ -31,7 +31,7 @@ fi
 # Link Hosting Kalian
 sanivpn="raw.githubusercontent.com/Yukik4ze/scriptvps/main/wireguard"
 
-# Check OS version
+# Cek versi OS
 if [[ -e /etc/debian_version ]]; then
 	source /etc/os-release
 	OS=$ID # debian or ubuntu
@@ -49,12 +49,12 @@ if [[ -e /etc/wireguard/params ]]; then
 fi
 
 echo -e "${Info} Wireguard Script By SaniVPN"
-# Detect public IPv4 address and pre-fill for the user
+# Deteksi alamat IPv4 publik dan pra-isi untuk pengguna
 
-# Detect public interface and pre-fill for the user
+# Deteksi antarmuka publik dan pra-isi untuk pengguna
 SERVER_PUB_NIC=$(ip -o $ANU -4 route show to default | awk '{print $5}');
 
-# Install WireGuard tools and module
+# Instal alat dan modul WireGuard
 	if [[ $OS == 'ubuntu' ]]; then
 	apt install -y wireguard
 elif [[ $OS == 'debian' ]]; then
@@ -69,7 +69,7 @@ elif [[ ${OS} == 'centos' ]]; then
 	yum -y install wireguard-dkms wireguard-tools
 	fi
 apt install iptables iptables-persistent -y
-# Make sure the directory exists (this does not seem the be the case on fedora)
+# Pastikan direktori ada (tampaknya ini tidak berfungsi di Fedora)
 mkdir /etc/wireguard >/dev/null 2>&1
 
 chmod 600 -R /etc/wireguard/
@@ -77,7 +77,7 @@ chmod 600 -R /etc/wireguard/
 SERVER_PRIV_KEY=$(wg genkey)
 SERVER_PUB_KEY=$(echo "$SERVER_PRIV_KEY" | wg pubkey)
 
-# Save WireGuard settings
+# Simpan pengaturan WireGuard
 echo "SERVER_PUB_NIC=$SERVER_PUB_NIC
 SERVER_WG_NIC=wg0
 SERVER_WG_IPV4=10.66.66.1
@@ -87,7 +87,7 @@ SERVER_PUB_KEY=$SERVER_PUB_KEY" >/etc/wireguard/params
 
 source /etc/wireguard/params
 
-# Add server interface
+# Tambahkan antarmuka server
 echo "[Interface]
 Address = $SERVER_WG_IPV4/24
 ListenPort = $SERVER_PORT
@@ -99,7 +99,7 @@ iptables -t nat -I POSTROUTING -s 10.66.66.1/24 -o $SERVER_PUB_NIC -j MASQUERADE
 iptables -I INPUT 1 -i wg0 -j ACCEPT
 iptables -I FORWARD 1 -i $SERVER_PUB_NIC -o wg0 -j ACCEPT
 iptables -I FORWARD 1 -i wg0 -o $SERVER_PUB_NIC -j ACCEPT
-iptables -I INPUT 1 -i $SERVER_PUB_NIC -p udp --dport 7070 -j ACCEPT
+iptables -I INPUT 1 -i $SERVER_PUB_NIC -p udp --dport 7070 -j ACCEPT #port yang digunakan Wireguard
 iptables-save > /etc/iptables.up.rules
 iptables-restore -t < /etc/iptables.up.rules
 netfilter-persistent save
@@ -108,7 +108,7 @@ netfilter-persistent reload
 systemctl start "wg-quick@wg0"
 systemctl enable "wg-quick@wg0"
 
-# Check if WireGuard is running
+# Periksa apakah WireGuard sedang berjalan
 systemctl is-active --quiet "wg-quick@wg0"
 WG_RUNNING=$?
 

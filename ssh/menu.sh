@@ -108,7 +108,7 @@ echo -e "$yy 59$y.Displaying System Information"
 echo -e "$yy 60$y.Info Script Auto Install"
 echo -e "$y-------------------------------------------------------------$wh"
 echo -e ""
-read -p "Select From Options [ 1 - 60 ] : " menu
+read -p "Pilih Dari Opsi [ 1 - 60 ] : " menu
 echo -e ""
 case $menu in
 1)

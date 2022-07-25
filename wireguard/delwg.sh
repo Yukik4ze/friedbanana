@@ -65,7 +65,7 @@ service cron restart
 clear
 echo ""
 echo "============================="
-echo "  Wireguard Account Deleted  "
+echo "    Akun Wireguard Dihapus   "
 echo "============================="
 echo "Nama Pengguna : $user"
 echo "Kadaluarsa    : $exp"
