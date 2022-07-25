@@ -59,10 +59,10 @@ service cron restart
 /etc/init.d/ssrmu restart
 clear
 echo ""
-echo "========================="
-echo "   SSR Account Deleted   "
-echo "========================="
+echo "==============================="
+echo "   Akun ShadowSocksR Dihapus   "
+echo "==============================="
 echo "Nama Pengguna : $user"
 echo "Kadaluarsa    : $exp"
-echo "========================="
+echo "==============================="
 echo "Script By SaniVPN"

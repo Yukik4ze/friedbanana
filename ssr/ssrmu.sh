@@ -53,7 +53,7 @@ check_pid(){
 	PID=`ps -ef |grep -v grep | grep server.py |awk '{print $2}'`
 }
 SSR_installation_status(){
-	[[ ! -e ${ssr_folder} ]] && echo -e "${Error} ShadowsocksR folder not found, please check! "&& exit 1
+	[[ ! -e ${ssr_folder} ]] && echo -e "${Error} Folder ShadowsocksR tidak ditemukan, silakan periksa! "&& exit 1
 }
 Add_iptables(){
 	if [[ ! -z "${ssr_port}" ]]; then
@@ -93,7 +93,7 @@ else
 		chmod +x /etc/network/if-pre-up.d/iptables
 fi
 }
-# 读取 配置信息
+# Baca Informasi Konfigurasi
 Get_IP(){
 	ip=$(wget -qO- -t1 -T2 ipinfo.io/ip)
 	if [[ -z "${ip}" ]]; then
@@ -111,7 +111,7 @@ Get_User_info(){
 	user_info_get=$(python mujson_mgr.py -l -p "${Get_user_port}")
 	match_info=$(echo "${user_info_get}"|grep -w "### user ")
 	if [[ -z "${match_info}" ]]; then
-		echo -e "${Error} Failed to get user information $ {Green Font Prefix} [Port: $ {ssh port}] $ {Font_color Suffix} " && exit 1
+		echo -e "${Error} Gagal mendapatkan informasi pengguna $ {Green Font Prefix} [Port: $ {ssh port}] $ {Font_color Suffix} " && exit 1
 	fi
 	user_name=$(echo "${user_info_get}"|grep -w "user :"|sed 's/[[:space:]]//g'|awk -F ":" '{print $NF}')
 	port=$(echo "${user_info_get}"|grep -w "port :"|sed 's/[[:space:]]//g'|awk -F ":" '{print $NF}')
@@ -255,7 +255,7 @@ View_User(){
 	List_port_user
 	while true
 	do
-		echo -e "Please enter the user port to view the account information"
+		echo -e "Silakan masukkan port pengguna untuk melihat informasi akun"
 		read -e -p "(Default: cancel):" View_user_port
 		[[ -z "${View_user_port}" ]] && echo -e "cancel..." && exit 1
 		View_user=$(cat "${config_user_mudb_file}"|grep '"port": '"${View_user_port}"',')
@@ -264,7 +264,7 @@ View_User(){
 			View_User_info
 			break
 		else
-			echo -e "${Error} Please enter the correct port !"
+			echo -e "${Error} Silakan masukkan port yang benar!"
 		fi
 	done
 }
@@ -284,7 +284,7 @@ View_User_info(){
 	echo -e "${ssr_link}"
  	echo && echo "==================================================="
 }
-# 设置 配置信息
+# Informasi Konfigurasi Pengaturan
 Set_config_enable(){
 	user_total=$(expr ${user_total} - 1)
 	for((integer = 0; integer <= ${user_total}; integer++))
@@ -320,10 +320,10 @@ Set_config_enable(){
 		if [[ "${ssr_enable_yn}" == [Yy] ]]; then
 			ssr_enable="1"
 		else
-			echo "cancel..." && exit 0
+			echo "Cancel..." && exit 0
 		fi
 	else
-		echo -e "${Error} The disabled status of the current port varies[${enable}] !" && exit 1
+		echo -e "${Error} Status dinonaktifkan dari port saat ini varies[${enable}] !" && exit 1
 	fi
 }
 Set_user_api_server_pub_addr(){
@@ -331,21 +331,21 @@ Set_user_api_server_pub_addr(){
 	if [[ "${addr}" == "Modify" ]]; then
 		server_pub_addr=$(cat ${config_user_api_file}|grep "SERVER_PUB_ADDR = "|awk -F "[']" '{print $2}')
 		if [[ -z ${server_pub_addr} ]]; then
-			echo -e "${Error} Failed to obtain the currently configured server IP or domain name！" && exit 1
+			echo -e "${Error} Gagal mendapatkan IP server atau nama domain yang saat ini dikonfigurasi！" && exit 1
 		else
-			echo -e "${Info} The currently configured server IP or domain name is： ${Green_font_prefix}${server_pub_addr}${Font_color_suffix}"
+			echo -e "${Info} IP server atau nama domain yang saat ini dikonfigurasi adalah： ${Green_font_prefix}${server_pub_addr}${Font_color_suffix}"
 		fi
 	fi
-	echo "Please enter the server IP or domain name to be displayed in the user's configuration (when the server has multiple IPs, you can specify the IP or domain name displayed in the user's configuration)"
-	read -e -p "(Default: Automatic detection of external network IP):" ssr_server_pub_addr
+	echo "Silakan masukkan IP server atau nama domain yang akan ditampilkan dalam konfigurasi pengguna (bila server memiliki beberapa IP, Anda dapat menentukan IP atau nama domain yang ditampilkan dalam konfigurasi pengguna)"
+	read -e -p "(Default: Deteksi otomatis IP jaringan eksternal):" ssr_server_pub_addr
 	if [[ -z "${ssr_server_pub_addr}" ]]; then
 		Get_IP
 		if [[ ${ip} == "VPS_IP" ]]; then
 			while true
 			do
-			read -e -p "${Error} Automatic detection of external network IP failed, please manually enter the server IP or domain name" ssr_server_pub_addr
+			read -e -p "${Error} Deteksi otomatis IP jaringan eksternal gagal, masukkan IP server atau nama domain secara manual" ssr_server_pub_addr
 			if [[ -z "$ssr_server_pub_addr" ]]; then
-				echo -e "${Error} Can not be empty！"
+				echo -e "${Error} Tidak boleh kosong！"
 			else
 				break
 			fi
@@ -354,7 +354,7 @@ Set_user_api_server_pub_addr(){
 			ssr_server_pub_addr="${ip}"
 		fi
 	fi
-	echo && echo ${Separator_1} && echo -e "	IP or domain name : ${Green_font_prefix}${ssr_server_pub_addr}${Font_color_suffix}" && echo ${Separator_1} && echo
+	echo && echo ${Separator_1} && echo -e "	IP atau nama domain : ${Green_font_prefix}${ssr_server_pub_addr}${Font_color_suffix}" && echo ${Separator_1} && echo
 }
 Set_config_all(){
 	lal=$1
@@ -385,9 +385,9 @@ Set_config_all(){
 Modify_config_password(){
 	match_edit=$(python mujson_mgr.py -e -p "${ssr_port}" -k "${ssr_password}"|grep -w "edit user ")
 	if [[ -z "${match_edit}" ]]; then
-		echo -e "${Error} User password modification failed ${Green_font_prefix}[Port: ${ssr_port}]${Font_color_suffix} " && exit 1
+		echo -e "${Error} Modifikasi kata sandi pengguna gagal ${Green_font_prefix}[Port: ${ssr_port}]${Font_color_suffix} " && exit 1
 	else
-		echo -e "${Info} User password modified successfully ${Green_font_prefix}[Port: ${ssr_port}]${Font_color_suffix} (It may take about 10 seconds to apply the latest configuration)"
+		echo -e "${Info} Kata sandi pengguna berhasil diubah ${Green_font_prefix}[Port: ${ssr_port}]${Font_color_suffix} (It may take about 10 seconds to apply the latest configuration)"
 	fi
 }
 Modify_config_enable(){
@@ -400,7 +400,7 @@ centos_View_user_connection_info(){
 	format_1=$1
 	user_info=$(python mujson_mgr.py -l)
 	user_total=$(echo "${user_info}"|wc -l)
-	[[ -z ${user_info} ]] && echo -e "${Error} Didn't find the user, please check again !" && exit 1
+	[[ -z ${user_info} ]] && echo -e "${Error} Tidak menemukan pengguna, silakan periksa lagi !" && exit 1
 	IP_total=`netstat -anp |grep 'ESTABLISHED' |grep 'python' |grep 'tcp' | grep '::ffff:' |awk '{print $5}' |awk -F ":" '{print $4}' |sort -u |wc -l`
 	user_list_all=""
 	for((integer = 1; integer <= ${user_total}; integer++))
@@ -417,17 +417,17 @@ centos_View_user_connection_info(){
 				user_IP=`echo -e "\n${user_IP_1}"`
 			fi
 		fi
-		user_list_all=${user_list_all}"Port: ${Green_font_prefix}"${user_port}"${Font_color_suffix}, The total number of linked IPs: ${Green_font_prefix}"${user_IP_total}"${Font_color_suffix}, Current linked IP: ${Green_font_prefix}${user_IP}${Font_color_suffix}\n"
+		user_list_all=${user_list_all}"Port: ${Green_font_prefix}"${user_port}"${Font_color_suffix}, Jumlah total IP yang ditautkan: ${Green_font_prefix}"${user_IP_total}"${Font_color_suffix}, Current linked IP: ${Green_font_prefix}${user_IP}${Font_color_suffix}\n"
 		user_IP=""
 	done
-	echo -e "The total number of users: ${Green_background_prefix} "${user_total}" ${Font_color_suffix} ，The total number of linked IPs: ${Green_background_prefix} "${IP_total}" ${Font_color_suffix} "
+	echo -e "Jumlah total pengguna: ${Green_background_prefix} "${user_total}" ${Font_color_suffix} ，Jumlah total IP yang ditautkan: ${Green_background_prefix} "${IP_total}" ${Font_color_suffix} "
 	echo -e "${user_list_all}"
 }
 debian_View_user_connection_info(){
 	format_1=$1
 	user_info=$(python mujson_mgr.py -l)
 	user_total=$(echo "${user_info}"|wc -l)
-	[[ -z ${user_info} ]] && echo -e "${Error} Didn't find the user, please check again! " && exit 1
+	[[ -z ${user_info} ]] && echo -e "${Error} Tidak menemukan pengguna, silakan periksa lagi! " && exit 1
 	IP_total=`netstat -anp |grep 'ESTABLISHED' |grep 'python' |grep 'tcp6' |awk '{print $5}' |awk -F ":" '{print $1}' |sort -u |wc -l`
 	user_list_all=""
 	for((integer = 1; integer <= ${user_total}; integer++))
@@ -444,26 +444,26 @@ debian_View_user_connection_info(){
 				user_IP=`echo -e "\n${user_IP_1}"`
 			fi
 		fi
-		user_list_all=${user_list_all}"Port: ${Green_font_prefix}"${user_port}"${Font_color_suffix}, The total number of linked IPs: ${Green_font_prefix}"${user_IP_total}"${Font_color_suffix}, Current linked IP: ${Green_font_prefix}${user_IP}${Font_color_suffix}\n"
+		user_list_all=${user_list_all}"Port: ${Green_font_prefix}"${user_port}"${Font_color_suffix}, Jumlah total IP yang ditautkan: ${Green_font_prefix}"${user_IP_total}"${Font_color_suffix}, Current linked IP: ${Green_font_prefix}${user_IP}${Font_color_suffix}\n"
 		user_IP=""
 	done
-	echo -e "The total number of users: ${Green_background_prefix} "${user_total}" ${Font_color_suffix} ，The total number of linked IPs: ${Green_background_prefix} "${IP_total}" ${Font_color_suffix} "
+	echo -e "Jumlah total pengguna: ${Green_background_prefix} "${user_total}" ${Font_color_suffix} ，Jumlah total IP yang ditautkan: ${Green_background_prefix} "${IP_total}" ${Font_color_suffix} "
 	echo -e "${user_list_all}"
 }
 View_user_connection_info(){
 	SSR_installation_status
-	echo && echo -e "Please select the format to display：
- ${Green_font_prefix}1.${Font_color_suffix} display IP 
- ${Green_font_prefix}2.${Font_color_suffix} display IP+Resolve the DNS name " && echo
+	echo && echo -e "Silakan pilih format yang akan ditampilkan：
+ ${Green_font_prefix}1.${Font_color_suffix} Tampilkan IP 
+ ${Green_font_prefix}2.${Font_color_suffix} Tampilkan IP + Resolve nama DNS " && echo
 	read -e -p "(Default: 1):" ssr_connection_info
 	[[ -z "${ssr_connection_info}" ]] && ssr_connection_info="1"
 	if [[ ${ssr_connection_info} == "1" ]]; then
 		View_user_connection_info_1 ""
 	elif [[ ${ssr_connection_info} == "2" ]]; then
-		echo -e "${Tip} Detect IP (ipip.net)，it can take longer time if there are many IPs"
+		echo -e "${Tip} Deteksi IP (ipip.net)，akan memakan waktu lebih lama jika ada banyak IP"
 		View_user_connection_info_1 "IP_address"
 	else
-		echo -e "${Error} Please enter the correct number(1-2)" && exit 1
+		echo -e "${Error} Masukkan nomor yang benar(1-2)" && exit 1
 	fi
 }
 View_user_connection_info_1(){
@@ -493,7 +493,7 @@ get_IP_address(){
 List_port_user(){
 	user_info=$(python mujson_mgr.py -l)
 	user_total=$(echo "${user_info}"|wc -l)
-	[[ -z ${user_info} ]] && echo -e "${Error} Didn't find the user, please check again! " && exit 1
+	[[ -z ${user_info} ]] && echo -e "${Error} Tidak menemukan pengguna, silakan periksa lagi! " && exit 1
 	user_list_all=""
 	for((integer = 1; integer <= ${user_total}; integer++))
 	do
@@ -502,13 +502,13 @@ List_port_user(){
 		Get_User_transfer "${user_port}"
 		user_list_all=${user_list_all}"Username: ${Green_font_prefix} "${user_username}"${Font_color_suffix} Port: ${Green_font_prefix}"${user_port}"${Font_color_suffix} Traffic usage (used + remaining = total): ${Green_font_prefix}${transfer_enable_Used_2}${Font_color_suffix} + ${Green_font_prefix}${transfer_enable_Used}${Font_color_suffix} = ${Green_font_prefix}${transfer_enable}${Font_color_suffix}\n"
 	done
-	echo && echo -e "=== Total of all users ${Green_background_prefix} "${user_total}" ${Font_color_suffix}"
+	echo && echo -e "=== Jumlah semua pengguna ${Green_background_prefix} "${user_total}" ${Font_color_suffix}"
 	echo -e ${user_list_all}
 }
 Manually_Modify_Config(){
 	SSR_installation_status
 	nano ${config_user_mudb_file}
-	echo "Do you want to restart ShadowsocksR? [Y/n]" && echo
+	echo "Apakah Anda ingin memulai ulang ShadowsocksR? [Y/n]" && echo
 	read -e -p "(Default: y):" yn
 	[[ -z ${yn} ]] && yn="y"
 	if [[ ${yn} == [Yy] ]]; then
@@ -517,18 +517,18 @@ Manually_Modify_Config(){
 }
 Clear_transfer(){
 	SSR_installation_status
-	echo && echo -e "What do you want to do?
- ${Green_font_prefix}1.${Font_color_suffix}  Clear single user traffic
- ${Green_font_prefix}2.${Font_color_suffix}  Clear all user traffic (irreparable)
- ${Green_font_prefix}3.${Font_color_suffix}  All user traffic is cleared on startup
- ${Green_font_prefix}4.${Font_color_suffix}  Stop timing all user traffic
- ${Green_font_prefix}5.${Font_color_suffix}  Modify the timing of all user traffic" && echo
+	echo && echo -e "Apa yang ingin kamu lakukan?
+ ${Green_font_prefix}1.${Font_color_suffix}  Hapus lalu lintas pengguna tunggal
+ ${Green_font_prefix}2.${Font_color_suffix}  Hapus semua lalu lintas pengguna (tidak dapat diperbaiki)
+ ${Green_font_prefix}3.${Font_color_suffix}  Semua lalu lintas pengguna dihapus saat startup
+ ${Green_font_prefix}4.${Font_color_suffix}  Hentikan pengaturan waktu semua lalu lintas pengguna
+ ${Green_font_prefix}5.${Font_color_suffix}  Ubah waktu semua lalu lintas pengguna" && echo
 	read -e -p "(Default: batal):" ssr_modify
 	[[ -z "${ssr_modify}" ]] && echo "Dibatalkan..." && exit 1
 	if [[ ${ssr_modify} == "1" ]]; then
 		Clear_transfer_one
 	elif [[ ${ssr_modify} == "2" ]]; then
-		echo "Are you sure you want to clear all user traffic[y/N]" && echo
+		echo "Apakah Anda yakin ingin menghapus semua lalu lintas pengguna?[y/N]" && echo
 		read -e -p "(Default: n):" yn
 		[[ -z ${yn} ]] && yn="n"
 		if [[ ${yn} == [Yy] ]]; then
@@ -547,27 +547,27 @@ Clear_transfer(){
 		check_crontab
 		Clear_transfer_all_cron_modify
 	else
-		echo -e "${Error} Please enter the correct number (1-5) " && exit 1
+		echo -e "${Error} Masukkan nomor yang benar (1-5) " && exit 1
 	fi
 }
 Clear_transfer_one(){
 	List_port_user
 	while true
 	do
-		echo -e "Please enter the port of the user who wants to reset the data"
+		echo -e "Silakan masukkan port pengguna yang ingin mengatur ulang data"
 		read -e -p "(Default: batal):" Clear_transfer_user_port
 		[[ -z "${Clear_transfer_user_port}" ]] && echo -e "Dibatalkan..." && exit 1
 		Clear_transfer_user=$(cat "${config_user_mudb_file}"|grep '"port": '"${Clear_transfer_user_port}"',')
 		if [[ ! -z ${Clear_transfer_user} ]]; then
 			match_clear=$(python mujson_mgr.py -c -p "${Clear_transfer_user_port}"|grep -w "clear user ")
 			if [[ -z "${match_clear}" ]]; then
-				echo -e "${Error} Failed to reset data used by the user ${Green_font_prefix}[Port: ${Clear_transfer_user_port}]${Font_color_suffix} "
+				echo -e "${Error} Gagal menyetel ulang data yang digunakan oleh pengguna ${Green_font_prefix}[Port: ${Clear_transfer_user_port}]${Font_color_suffix} "
 			else
-				echo -e "${Info} Successfully reseted user-used data${Green_font_prefix}[Port: ${Clear_transfer_user_port}]${Font_color_suffix} "
+				echo -e "${Info} Berhasil menyetel ulang data yang digunakan pengguna${Green_font_prefix}[Port: ${Clear_transfer_user_port}]${Font_color_suffix} "
 			fi
 			break
 		else
-			echo -e "${Error} Please enter the correct Port!"
+			echo -e "${Error} Silakan Masukkan Port yang Benar!"
 		fi
 	done
 }
@@ -575,18 +575,18 @@ Clear_transfer_all(){
 	cd "${ssr_folder}"
 	user_info=$(python mujson_mgr.py -l)
 	user_total=$(echo "${user_info}"|wc -l)
-	[[ -z ${user_info} ]] && echo -e "${Error} No users were found, please check!" && exit 1
+	[[ -z ${user_info} ]] && echo -e "${Error} Tidak ada pengguna yang ditemukan, silakan periksa!" && exit 1
 	for((integer = 1; integer <= ${user_total}; integer++))
 	do
 		user_port=$(echo "${user_info}"|sed -n "${integer}p"|awk '{print $4}')
 		match_clear=$(python mujson_mgr.py -c -p "${user_port}"|grep -w "clear user ")
 		if [[ -z "${match_clear}" ]]; then
-			echo -e "${Error} Failed to reset data used by the user ${Green_font_prefix}[Port: ${user_port}]${Font_color_suffix} "
+			echo -e "${Error} Gagal menyetel ulang data yang digunakan oleh pengguna ${Green_font_prefix}[Port: ${user_port}]${Font_color_suffix} "
 		else
-			echo -e "${Info} The user has successfully reset traffic ${Green_font_prefix}[Port: ${user_port}]${Font_color_suffix} "
+			echo -e "${Info} Pengguna telah berhasil mengatur ulang lalu lintas ${Green_font_prefix}[Port: ${user_port}]${Font_color_suffix} "
 		fi
 	done
-	echo -e "${Info} All user traffic is removed! "
+	echo -e "${Info} Semua lalu lintas pengguna dihapus! "
 }
 Clear_transfer_all_cron_start(){
 	crontab -l > "$file/crontab.bak"
@@ -596,9 +596,9 @@ Clear_transfer_all_cron_start(){
 	rm -r "$file/crontab.bak"
 	cron_config=$(crontab -l | grep "ssrmu.sh")
 	if [[ -z ${cron_config} ]]; then
-		echo -e "${Error} Failed to reset all user traffic at normal time!" && exit 1
+		echo -e "${Error} Gagal mengatur ulang semua lalu lintas pengguna pada waktu normal!" && exit 1
 	else
-		echo -e "${Info} All user traffic is cleared and it starts successfully!"
+		echo -e "${Info} Semua lalu lintas pengguna dihapus dan dimulai dengan sukses!"
 	fi
 }
 Clear_transfer_all_cron_stop(){
@@ -608,9 +608,9 @@ Clear_transfer_all_cron_stop(){
 	rm -r "$file/crontab.bak"
 	cron_config=$(crontab -l | grep "ssrmu.sh")
 	if [[ ! -z ${cron_config} ]]; then
-		echo -e "${Error} Fail to clear all user traffic regularly to quit!" && exit 1
+		echo -e "${Error} Gagal menghapus semua lalu lintas pengguna secara teratur untuk berhenti!" && exit 1
 	else
-		echo -e "${Info}All user traffic is cleaned regularly and stopped successfully!"
+		echo -e "${Info}Semua lalu lintas pengguna dibersihkan secara teratur dan berhasil dihentikan!"
 	fi
 }
 Clear_transfer_all_cron_modify(){
@@ -619,27 +619,27 @@ Clear_transfer_all_cron_modify(){
 	Clear_transfer_all_cron_start
 }
 Set_crontab(){
-		echo -e "Please enter an interval to clear the flow
+		echo -e "Silakan masukkan interval untuk menghapus aliran
  === Format Description ===
- * * * * * In accordance with the minutes, hours, days, months, weeks
- ${Green_font_prefix} 0 2 1 * * ${Font_color_suffix} On behalf of every month at 2 o'clock on the 1st, clean used traffic
- ${Green_font_prefix} 0 2 15 * * ${Font_color_suffix} On the 15th of each month at 2: 0 pm Remove used traffic
- ${Green_font_prefix} 0 2 */7 * * ${Font_color_suffix} Used traffic will be cleared at 2 o'clock every 7 days
- ${Green_font_prefix} 0 2 * * 0 ${Font_color_suffix} Every Sunday (7) clean the flow used
- ${Green_font_prefix} 0 2 * * 3 ${Font_color_suffix} every Wednesday (3) clear the flow used" && echo
-	read -e -p "(Default: 0 2 1 * * 2 o'clock on the 1st of every month):" Crontab_time
+ * * * * * Sesuai dengan menit, jam, hari, bulan, minggu
+ ${Green_font_prefix} 0 2 1 * * ${Font_color_suffix} Setiap bulan pada jam 2 tanggal 1, bersihkan lalu lintas bekas
+ ${Green_font_prefix} 0 2 15 * * ${Font_color_suffix} Pada tanggal 15 setiap bulan pukul 14:00 Hapus lalu lintas bekas
+ ${Green_font_prefix} 0 2 */7 * * ${Font_color_suffix} Lalu lintas bekas akan dibersihkan pada jam 2 setiap 7 hari
+ ${Green_font_prefix} 0 2 * * 0 ${Font_color_suffix} Setiap Minggu (7) bersihkan aliran yang digunakan
+ ${Green_font_prefix} 0 2 * * 3 ${Font_color_suffix} Setiap Rabu (3) bersihkan aliran yang digunakan" && echo
+	read -e -p "(Default: 0 2 1 * * Pukul 2 pada tanggal 1 setiap bulan):" Crontab_time
 	[[ -z "${Crontab_time}" ]] && Crontab_time="0 2 1 * *"
 }
 Start_SSR(){
 	SSR_installation_status
 	check_pid
-	[[ ! -z ${PID} ]] && echo -e "${Error} ShadowsocksR Running! " && exit 1
+	[[ ! -z ${PID} ]] && echo -e "${Error} ShadowsocksR Berjalan! " && exit 1
 	/etc/init.d/ssrmu start
 }
 Stop_SSR(){
 	SSR_installation_status
 	check_pid
-	[[ -z ${PID} ]] && echo -e "${Error} ShadowsocksR Is Not Running" && exit 1
+	[[ -z ${PID} ]] && echo -e "${Error} ShadowsocksR Tidak Berjalan!" && exit 1
 	/etc/init.d/ssrmu stop
 }
 Restart_SSR(){
@@ -650,17 +650,17 @@ Restart_SSR(){
 }
 View_Log(){
 	SSR_installation_status
-	[[ ! -e ${ssr_log_file} ]] && echo -e "${Error} The Shadowsocks log file does not exist! " && exit 1
-	echo && echo -e "${Tip} Click ${Red_font_prefix}Ctrl+C${Font_color_suffix} Stop Displaying logs " && echo
+	[[ ! -e ${ssr_log_file} ]] && echo -e "${Error} File log Shadowsocks tidak ada! " && exit 1
+	echo && echo -e "${Tip} Klik ${Red_font_prefix}Ctrl+C${Font_color_suffix} Berhenti Menampilkan Log " && echo
 	tail -f ${ssr_log_file}
 }
 Update_Shell(){
-	echo -e "The current version is [$ {sh_ver}], start checking for the latest version ... "
+	echo -e "Versi saat ini adalah [$ {sh_ver}], mulai memeriksa versi terbaru ... "
 	sh_new_ver=$(wget --no-check-certificate -qO- "https://raw.githubusercontent.com/hybtoy/ssrrmu/master/ssrrmu.sh"|grep 'sh_ver="'|awk -F "=" '{print $NF}'|sed 's/\"//g'|head -1) && sh_new_type="github"
 	[[ -z ${sh_new_ver} ]] && sh_new_ver=$(wget --no-check-certificate -qO- "https://raw.githubusercontent.com/hybtoy/ssrrmu/master/ssrrmu.sh"|grep 'sh_ver="'|awk -F "=" '{print $NF}'|sed 's/\"//g'|head -1) && sh_new_type="github"
-	[[ -z ${sh_new_ver} ]] && echo -e "${Error} Failed to detect the latest version! " && exit 0
+	[[ -z ${sh_new_ver} ]] && echo -e "${Error} Gagal mendeteksi versi terbaru! " && exit 0
 	if [[ ${sh_new_ver} != ${sh_ver} ]]; then
-		echo -e "Versi baru ditemukan[ ${sh_new_ver} ]，Do you want to be updated? [Y/n]"
+		echo -e "Versi baru ditemukan[ ${sh_new_ver} ]，Apakah Anda ingin diperbarui?? [Y/n]"
 		read -e -p "(default: y):" yn
 		[[ -z "${yn}" ]] && yn="y"
 		if [[ ${yn} == [Yy] ]]; then
@@ -668,12 +668,12 @@ Update_Shell(){
 			if [[ $sh_new_type == "github" ]]; then
 				wget -N --no-check-certificate https://raw.githubusercontent.com/hybtoy/ssrrmu/master/ssrrmu.sh && chmod +x ssrrmu.sh
 			fi
-			echo -e "The Script Has Been Updated To The Latest Version..."
+			echo -e "Script Telah Diperbarui Ke Versi Terbaru..."
 		else
 			echo && echo "cancel..." && echo
 		fi
 	else
-		echo -e "Currently The Latest Version[ ${sh_new_ver} ] !"
+		echo -e "Versi Terakhir Saat Ini [ ${sh_new_ver} ] !"
 	fi
 	exit 0
 }
@@ -681,13 +681,13 @@ menu_status(){
 	if [[ -e ${ssr_folder} ]]; then
 		check_pid
 		if [[ ! -z "${PID}" ]]; then
-			echo -e "  Current status: ${Green_font_prefix} Installed${Font_color_suffix} & ${Green_font_prefix} Running${Font_color_suffix}"
+			echo -e "  Status saat ini: ${Green_font_prefix} Installed${Font_color_suffix} & ${Green_font_prefix} Running${Font_color_suffix}"
 		else
-			echo -e "  Current status: ${Green_font_prefix} Installed${Font_color_suffix} but ${Red_font_prefix} Not Running${Font_color_suffix}"
+			echo -e "  Status saat ini: ${Green_font_prefix} Installed${Font_color_suffix} but ${Red_font_prefix} Not Running${Font_color_suffix}"
 		fi
 		cd "${ssr_folder}"
 	else
-		echo -e " Current status: ${Red_font_prefix}tidak terinstall${Font_color_suffix}"
+		echo -e " Status saat ini: ${Red_font_prefix}tidak terinstall${Font_color_suffix}"
 	fi
 }
 if [[ "${action}" == "clearall" ]]; then
@@ -696,23 +696,23 @@ elif [[ "${action}" == "monitor" ]]; then
 	crontab_monitor_ssr
 else
 menu_status
-	echo -e "  Menu ShadowsocksR
+	echo -e "  Menu ShadowSocksR
   Versi: ${Green_font_prefix}[v${sh_ver}]${Font_color_suffix}
 	
-  ${Green_font_prefix}1.${Font_color_suffix}  Check the account information
-  ${Green_font_prefix}2.${Font_color_suffix}  Display the connection information 
-  ${Green_font_prefix}3.${Font_color_suffix}  Change Password User
-  ${Green_font_prefix}4.${Font_color_suffix}  Manually Modify User Configuration
-  ${Green_font_prefix}5.${Font_color_suffix}  Clear The Used Traffic  
+  ${Green_font_prefix}1.${Font_color_suffix}  Periksa informasi akun
+  ${Green_font_prefix}2.${Font_color_suffix}  Tampilkan informasi koneksi 
+  ${Green_font_prefix}3.${Font_color_suffix}  Ubah Kata Sandi Pengguna
+  ${Green_font_prefix}4.${Font_color_suffix}  Ubah Konfigurasi Pengguna Secara Manual
+  ${Green_font_prefix}5.${Font_color_suffix}  Hapus Lalu Lintas yang Digunakan  
   ${Green_font_prefix}6.${Font_color_suffix}  Start ShadowsocksR
   ${Green_font_prefix}7.${Font_color_suffix}  Stop ShadowsocksR
   ${Green_font_prefix}8.${Font_color_suffix}  Restart ShadowsocksR
-  ${Green_font_prefix}9.${Font_color_suffix}  Cek ShadowsocksR log
+  ${Green_font_prefix}9.${Font_color_suffix}  Cek ShadowSocksR Log
   ${Green_font_prefix}10.${Font_color_suffix} Upgrade script 
   
-  ${Tip} Username And User Port Can Not Be Changed, If You Need To Modify, Use The Script To Manually Change The Function!
+  ${Tip} Nama Pengguna Dan Port Pengguna Tidak Dapat Diubah, Jika Anda Perlu Memodifikasi, Gunakan Script Untuk Mengubah Fungsi Secara Manual!
  "
-	echo && read -e -p "Please enter the correct number [1-10]：" num
+	echo && read -e -p "Masukkan nomor yang benar [1-10]：" num
 case "$num" in
 	1)
 	View_User
@@ -747,7 +747,7 @@ case "$num" in
 	Update_Shell
 	;;
 	*)
-	echo -e "${Error} Please enter the correct number [1-10] "
+	echo -e "${Error} Masukkan nomor yang benar [1-10] "
 	;;
 esac
 fi

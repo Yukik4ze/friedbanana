@@ -59,10 +59,10 @@ bln=$(echo "$exp4" | cut -d- -f2)
 sed -i "s/### $user $exp/### $user $exp4/g" /usr/local/shadowsocksr/akun.conf
 clear
 echo ""
-echo "======================="
-echo "  SSR Account Renewed  "
-echo "======================="
+echo "================================"
+echo "  Akun ShadowSocksR Diperbarui  "
+echo "================================"
 echo "Nama Pengguna : $user"
 echo "Kadaluarsa    : $exp4"
-echo "======================="
+echo "================================"
 echo "Script By SaniVPN"
