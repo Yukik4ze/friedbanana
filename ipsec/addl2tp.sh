@@ -67,15 +67,15 @@ echo -e "### $VPN_USER $exp">>"/var/lib/sanistorevpn/data-user-l2tp"
 cat <<EOF
 
 ============================
-L2TP/IPSEC PSK VPN
+     L2TP/IPSEC PSK VPN
 ============================
-IP/Host    : $PUBLIC_IP
-Domain     : $domain
-IPsec PSK  : myvpn
+IP/Host       : $PUBLIC_IP
+Domain        : $domain
+IPsec PSK     : myvpn
 Nama Pengguna : $VPN_USER
-Password   : $VPN_PASSWORD
-Dibuat    : $hariini
-Expired    : $exp
+Password      : $VPN_PASSWORD
+Dibuat        : $hariini
+Expired       : $exp
 ============================
 Script By SaniVPN
 EOF

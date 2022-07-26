@@ -28,16 +28,16 @@ echo " "
 echo "===========================================";
 echo " ";
 if [ -e "/root/log-limit.txt" ]; then
-echo "User Who Violate The Maximum Limit";
-echo "Time - Username - Number of Multilogin"
-echo "-------------------------------------";
+echo "Pengguna Yang Melanggar Batas Maksimum     ";
+echo "Waktu - Nama Pengguna - Jumlah Multilogin  "
+echo "-------------------------------------------";
 cat /root/log-limit.txt
 else
-echo " No user has committed a violation"
+echo " Tidak ada pengguna yang melakukan pelanggaran"
 echo " "
-echo " or"
+echo " atau"
 echo " "
-echo " The user-limit script not been executed."
+echo " Skrip batas pengguna belum dieksekusi."
 fi
 echo " ";
 echo "===========================================";

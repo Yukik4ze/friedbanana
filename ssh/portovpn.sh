@@ -29,9 +29,9 @@ ovpn="$(netstat -nlpt | grep -i openvpn | grep -i 0.0.0.0 | awk '{print $4}' | c
 ovpn2="$(netstat -nlpu | grep -i openvpn | grep -i 0.0.0.0 | awk '{print $4}' | cut -d: -f2)"
 echo -e "======================================"
 echo -e ""
-echo -e "[1]  Change Port TCP $ovpn"
-echo -e "[2]. Change Port UDP $ovpn2"
-echo -e "[3]. Exit"
+echo -e "[1]  Ubah Port TCP $ovpn"
+echo -e "[2]. Ubah Port UDP $ovpn2"
+echo -e "[3]. Keluar"
 echo -e ""
 echo -e "======================================"
 echo -e ""
@@ -39,9 +39,9 @@ read -p "Pilih Dari Opsi [ 1-3 ] : " prot
 echo -e ""
 case $prot in
 1)
-read -p "New Port OpenVPN : " vpn
+read -p "Port OpenVPN Baru : " vpn
 if [ -z $vpn ]; then
-echo "Please Input Port"
+echo "Silahkan Masukan Port"
 exit 0
 fi
 cek=$(netstat -nutlp | grep -w $vpn)
@@ -94,15 +94,15 @@ systemctl disable --now openvpn-server@server-tcp > /dev/null
 systemctl enable --now openvpn-server@server-tcp > /dev/null
 sed -i "s/   - OpenVPN                 : TCP $ovpn, UDP $ovpn2, SSL 442/   - OpenVPN                 : TCP $vpn, UDP $ovpn2, SSL 442/g" /root/log-install.txt
 sed -i "s/$ovpn/$vpn/g" /etc/stunnel/stunnel.conf
-echo -e "\e[032;1mPort $vpn modified successfully\e[0m"
+echo -e "\e[032;1mModifikasi Port $vpn Berhasil\e[0m"
 else
 echo "Port $vpn is used"
 fi
 ;;
 2)
-read -p "New Port OpenVPN: " vpn
+read -p "Port OpenVPN Baru: " vpn
 if [ -z $vpn ]; then
-echo "Please Input Port"
+echo "Silahkan Masukan Port"
 exit 0
 fi
 cek=$(netstat -nutlp | grep -w $vpn)
@@ -155,9 +155,9 @@ cp /etc/openvpn/udp.ovpn /home/vps/public_html/udp.ovpn
 systemctl disable --now openvpn-server@server-udp > /dev/null
 systemctl enable --now openvpn-server@server-udp > /dev/null
 sed -i "s/   - OpenVPN                 : TCP $ovpn, UDP $ovpn2, SSL 442/   - OpenVPN                 : TCP $ovpn, UDP $vpn, SSL 442/g" /root/log-install.txt
-echo -e "\e[032;1mPort $vpn modified successfully\e[0m"
+echo -e "\e[032;1mModifikasi Port $vpn Berhasil\e[0m"
 else
-echo "Port $vpn is used"
+echo "Port $vpn Telah Digunakan"
 fi
 ;;
 3)
@@ -165,7 +165,7 @@ exit
 menu
 ;;
 *)
-echo "Please enter an correct number"
+echo "Silakan masukkan nomor yang benar"
 ;;
 esac
 

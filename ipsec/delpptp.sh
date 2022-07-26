@@ -56,7 +56,7 @@ chmod 600 /etc/ppp/chap-secrets* /etc/ipsec.d/passwd*
 clear
 echo ""
 echo "=========================="
-echo "   PPTP Account Deleted   "
+echo "    Akun PPTP Dihapus     "
 echo "=========================="
 echo "Nama Pengguna : $VPN_USER"
 echo "Kadaluarsa    : $exp"

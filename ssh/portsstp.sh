@@ -27,12 +27,12 @@ clear
 sstp="$(cat ~/log-install.txt | grep -i SSTP | cut -d: -f2|sed 's/ //g')"
 echo -e "======================================"
 echo -e ""
-echo -e "Change Port $sstp"
+echo -e "Ubah Port $sstp"
 echo -e ""
 echo -e "======================================"
-read -p "New Port sstp : " sstp2
+read -p "Port SSTP Baru : " sstp2
 if [ -z $sstp2 ]; then
-echo "Please Input Port"
+echo "Silahkan Masukan Port"
 exit 0
 fi
 cek=$(netstat -nutlp | grep -w $sstp2)
@@ -48,8 +48,8 @@ iptables-restore -t < /etc/iptables.up.rules
 netfilter-persistent save > /dev/null
 netfilter-persistent reload > /dev/null
 systemctl restart accel-ppp> /dev/null
-echo -e "\e[032;1mPort $sstp2 modified successfully\e[0m"
+echo -e "\e[032;1mModifikasi Port $sstp2 Berhasil\e[0m"
 else
-echo "Port $sstp2 is used"
+echo "Port $sstp2 Telah Digunakan"
 fi
 

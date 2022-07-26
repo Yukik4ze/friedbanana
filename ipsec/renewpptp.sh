@@ -58,7 +58,7 @@ sed -i "s/### $user $exp/### $user $exp4/g" /var/lib/sanistorevpn/data-user-pptp
 clear
 echo ""
 echo "=========================="
-echo "   PPTP Account Renewed   "
+echo "   Akun PPTP Diperbarui   "
 echo "=========================="
 echo "Nama Pengguna : $user"
 echo "Kadaluarsa    : $exp4"

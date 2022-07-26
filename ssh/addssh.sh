@@ -39,6 +39,7 @@ echo -e "$Pass\n$Pass\n"|passwd $Login &> /dev/null
 hariini=`date -d "0 days" +"%Y-%m-%d"`
 expi=`date -d "$masaaktif days" +"%Y-%m-%d"`
 echo -e ""
+echo -e "=============================="
 echo -e "Informasi SSH & OpenVPN"
 echo -e "=============================="
 echo -e "IP/Host       : $IP"
@@ -53,7 +54,7 @@ echo -e "OHP Dropbear  : 8282"
 echo -e "OHP OpenVPN   : 8383"
 echo -e "Ssh Ws SSL    : $ws"
 echo -e "Ssh Ws No SSL : $ws2"
-echo -e "Ovpn Ws       : 2086"
+echo -e "Ovpn Ws       : 443"
 echo -e "Port TCP      : $ovpn"
 echo -e "Port UDP      : $ovpn2"
 echo -e "Port SSL      : 990"

@@ -58,7 +58,7 @@ chmod 600 /etc/ppp/chap-secrets* /etc/ipsec.d/passwd*
 clear
 echo ""
 echo "=========================="
-echo "   L2TP Account Deleted   "
+echo "    Akun L2TP Dihapus     "
 echo "=========================="
 echo "Nama Pengguna : $VPN_USER"
 echo "Kadaluarsa    : $exp"

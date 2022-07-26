@@ -25,7 +25,7 @@ exit 0
 fi
 clear
 echo "---------------------------------------------------"
-echo "USERNAME          EXP DATE          STATUS"
+echo "USERNAME          TANGGAL KADALUARSA         STATUS"
 echo "---------------------------------------------------"
 while read expired
 do
@@ -43,5 +43,5 @@ fi
 done < /etc/passwd
 JUMLAH="$(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd | wc -l)"
 echo "---------------------------------------------------"
-echo "Account number: $JUMLAH user"
+echo "Jumlah Akun: $JUMLAH Pengguna"
 echo "---------------------------------------------------"

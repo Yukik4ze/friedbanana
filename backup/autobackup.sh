@@ -27,7 +27,7 @@ fi
 function start() {
 email=$(cat /home/email)
 if [[ "$email" = "" ]]; then
-echo "Please enter your email"
+echo "Masukkan email Anda"
 read -rp "Email : " -e email
 cat <<EOF>>/home/email
 $email
@@ -42,8 +42,8 @@ service cron restart
 sleep 1
 echo " Please Wait"
 clear
-echo " Autobackup Has Been Started"
-echo " Data Will Be Backed Up Automatically at 00:05 GMT +7"
+echo " Cadangkan Otomatis Telah Dimulai"
+echo " Data Akan Dicadangkan Secara Otomatis pada 00:05 GMT +7"
 exit 0
 }
 function stop() {
@@ -52,24 +52,24 @@ sed -i "/^$email/d" /home/email
 sed -i "/^# BEGIN_Backup/,/^# END_Backup/d" /etc/crontab
 service cron restart
 sleep 1
-echo " Please Wait"
+echo " Silahkan Tunggu"
 clear
-echo " Autobackup Has Been Stopped"
+echo " Cadangkan Otomatis Telah Dihentikan"
 exit 0
 }
 
 function gantipenerima() {
 rm -rf /home/email
-echo "Please enter your email"
+echo "Silahkan Masukan Email Anda"
 read -rp "Email : " -e email
 cat <<EOF>>/home/email
 $email
 EOF
 }
 function gantipengirim() {
-echo "Please enter your email"
+echo "Silahkan Masukan Email Anda"
 read -rp "Email : " -e email
-echo "Please enter your Password email"
+echo "Silahkan Masukkan Password Email"
 read -rp "Password : " -e pwdd
 rm -rf /etc/msmtprc
 cat<<EOF>>/etc/msmtprc
@@ -101,15 +101,15 @@ Tanggal : $date
 }
 clear
 echo -e "=============================="
-echo -e "     Autobackup Data $sts     "
+echo -e " Data Cadangan Otomatis $sts "
 echo -e "=============================="
-echo -e "1. Start Autobackup"
-echo -e "2. Stop Autobackup"
-echo -e "3. Ganti Email Penerima"
+echo -e "1. Mulai Cadangkan Otomatis"
+echo -e "2. Hentikan Pencadangan Otomatis"
+echo -e "3. Ganti Penerima Email"
 echo -e "4. Ganti Email Pengirim"
-echo -e "5. Test kirim Email"
+echo -e "5. Tes Kirim Email"
 echo -e "=============================="
-read -rp "Please Enter The Correct Number : " -e num
+read -rp "Silahkan Masukkan Nomor Yang Benar : " -e num
 case $num in
 1)
 start

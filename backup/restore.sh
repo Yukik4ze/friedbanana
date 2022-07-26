@@ -12,9 +12,9 @@ LIGHT='\033[0;37m'
 # ==========================================
 # Persiapan VPS
 clear
-echo "This Feature Can Only Be Used According To Vps Data With This Autoscript"
-echo "Please input link to your vps data backup file."
-echo "You can check it on your email if you run backup data vps before."
+echo "Fitur Ini Hanya Dapat Digunakan Menurut Data VPS Dengan Autoscript Ini"
+echo "Silahkan masukan link file backup data VPS anda."
+echo "Anda dapat memeriksanya di email Anda jika Anda menjalankan VPS data cadangan sebelumnya."
 read -rp "Link File: " -e url
 wget -O backup.zip "$url"
 unzip backup.zip

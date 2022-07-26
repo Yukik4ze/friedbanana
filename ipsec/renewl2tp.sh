@@ -58,7 +58,7 @@ sed -i "s/### $user $exp/### $user $exp4/g" /var/lib/sanistorevpn/data-user-l2tp
 clear
 echo ""
 echo "=========================="
-echo "   L2TP Account Renewed   "
+echo "   Akun L2TP Diperbarui   "
 echo "=========================="
 echo "Nama Pengguna : $user"
 echo "Kadaluarsa    : $exp4"

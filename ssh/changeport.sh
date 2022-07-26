@@ -16,15 +16,15 @@ clear
 echo -e ""
 echo -e "======================================"
 echo -e ""
-echo -e "[1]. Change Port OpenVPN"
-echo -e "[2]. Change Port Wireguard"
-echo -e "[3]. Change Port Vmess + Vless"
-echo -e "[4]. Change Port Trojan"
-echo -e "[5]. Change Port Squid"
-echo -e "[6]. Change Port SSTP"
-echo -e "[7]. Change Port SSH WS NON TLS"
-echo -e "[8]. Change Port SSH WS TLS / SSL"
-echo -e "[9]. Exit"
+echo -e "[1]. Ubah Port OpenVPN"
+echo -e "[2]. Ubah Port Wireguard"
+echo -e "[3]. Ubah Port Vmess + Vless"
+echo -e "[4]. Ubah Port Trojan"
+echo -e "[5]. Ubah Port Squid"
+echo -e "[6]. Ubah Port SSTP"
+echo -e "[7]. Ubah Port SSH WS NON TLS"
+echo -e "[8]. Ganti Port SSH WS TLS/SSL"
+echo -e "[9]. Keluar"
 echo -e ""
 echo -e "======================================"
 echo -e ""
@@ -60,6 +60,6 @@ clear
 menu
 ;;
 *)
-echo "Please enter an correct number"
+echo "Silakan masukkan nomor yang benar"
 ;;
 esac

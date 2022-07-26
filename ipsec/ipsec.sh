@@ -38,21 +38,21 @@ source /etc/os-release
 OS=$ID
 ver=$VERSION_ID
 bigecho() { echo; echo "## $1"; echo; }
-bigecho "VPN setup in progress... Please be patient."
+bigecho "Penyiapan VPN sedang berlangsung... Harap bersabar."
 
 # Create and change to working dir
 mkdir -p /opt/src
 cd /opt/src
 
-bigecho "Trying to auto discover IP of this server..."
+bigecho "Mencoba menemukan IP server ini secara otomatis..."
 PUBLIC_IP=$(wget -qO- ipinfo.io/ip);
 
-bigecho "Installing packages required for the VPN..."
+bigecho "Menginstal paket yang diperlukan untuk VPN..."
 if [[ ${OS} == "centos" ]]; then
 epel_url="https://dl.fedoraproject.org/pub/epel/epel-release-latest-$(rpm -E '%{rhel}').noarch.rpm"
 yum -y install epel-release || yum -y install "$epel_url" 
 
-bigecho "Installing packages required for the VPN..."
+bigecho "Menginstal paket yang diperlukan untuk VPN..."
 
 REPO1='--enablerepo=epel'
 REPO2='--enablerepo=*server-*optional*'
@@ -79,7 +79,7 @@ apt-get -y install libnss3-dev libnspr4-dev pkg-config \
   libcurl4-nss-dev flex bison gcc make libnss3-tools \
   libevent-dev ppp xl2tpd pptpd
 fi
-bigecho "Compiling and installing Libreswan..."
+bigecho "Mengkompilasi dan menginstal Libreswan..."
 
 SWAN_VER=3.32
 swan_file="libreswan-$SWAN_VER.tar.gz"
@@ -119,10 +119,10 @@ make "-j$((NPROCS+1))" -s base && make -s install-base
 cd /opt/src || exit 1
 /bin/rm -rf "/opt/src/libreswan-$SWAN_VER"
 if ! /usr/local/sbin/ipsec --version 2>/dev/null | grep -qF "$SWAN_VER"; then
-  exiterr "Libreswan $SWAN_VER failed to build."
+  exiterr "Libreswan $SWAN_VER gagal dibangun."
 fi
 
-bigecho "Creating VPN configuration..."
+bigecho "Membuat konfigurasi VPN..."
 
 L2TP_NET=192.168.42.0/24
 L2TP_LOCAL=192.168.42.1
@@ -285,7 +285,7 @@ netfilter-persistent save
 netfilter-persistent reload
 fi
 
-bigecho "Enabling services on boot..."
+bigecho "Mengaktifkan layanan saat boot..."
 systemctl enable xl2tpd
 systemctl enable ipsec
 systemctl enable pptpd
@@ -295,7 +295,7 @@ for svc in fail2ban ipsec xl2tpd; do
   systemctl enable "$svc" 2>/dev/null
 done
 
-bigecho "Starting services..."
+bigecho "Memulai layanan..."
 sysctl -e -q -p
 chmod 600 /etc/ipsec.secrets* /etc/ppp/chap-secrets* /etc/ipsec.d/passwd*
 

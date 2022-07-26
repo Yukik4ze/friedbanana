@@ -30,27 +30,27 @@ Error="${Red_font_prefix}[OFF]${Font_color_suffix}"
 cek=$(cat /home/limit)
 NIC=$(ip -o $ANU -4 route show to default | awk '{print $5}');
 function start () {
-echo -e "Limit Speed All Service"
-read -p "Set maximum download rate (in Kbps): " down
-read -p "Set maximum upload rate (in Kbps): " up
+echo -e "Batasi Kecepatan Semua Layanan"
+read -p "Setel kecepatan unduh maksimum (dalam Kbps): " down
+read -p "Setel kecepatan unggah maksimum (dalam Kbps): " up
 if [[ -z "$down" ]] && [[ -z "$up" ]]; then
 echo > /dev/null 2>&1
 else
-echo "Start Configuration"
+echo "Mulai Konfigurasi"
 sleep 0.5
 wondershaper -a $NIC -d $down -u $up > /dev/null 2>&1
 systemctl enable --now wondershaper.service
 echo "start" > /home/limit
-echo "Done"
+echo "Selesai"
 fi
 }
 function stop () {
 wondershaper -ca $NIC
 systemctl stop wondershaper.service
-echo "Stop Configuration"
+echo "Hentikan Konfigurasi"
 sleep 0.5
 echo > /home/limit
-echo "Done"
+echo "Selesai"
 }
 if [[ "$cek" = "start" ]]; then
 sts="${Info}"
@@ -59,19 +59,19 @@ sts="${Error}"
 fi
 clear
 echo -e "=================================="
-echo -e "    Limit Bandwidth Speed $sts    "
+echo -e " Batasi Kecepatan Bandwidth $sts "
 echo -e "=================================="
-echo -e "[1]. Start Limit"
-echo -e "[2]. Stop Limit"
+echo -e "[1]. Mulai Batasi"
+echo -e "[2]. Berhenti Batasi"
 echo -e "==============================="
-read -rp "Please Enter The Correct Number : " -e num
+read -rp "Silahkan Masukkan Nomor Yang Benar : " -e num
 if [[ "$num" = "1" ]]; then
 start
 elif [[ "$num" = "2" ]]; then
 stop
 else
 clear
-echo " You Entered The Wrong Number"
+echo " Anda Memasukkan Nomor Yang Salah"
 menu
 fi
 

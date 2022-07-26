@@ -23,11 +23,11 @@ echo -e "${NC}${RED}Tidak Diijinkan${NC}";
 echo -e "${NC}${LIGHT}Script by : thethemythwashere"
 exit 0
 fi
-read -p "Username SSH to Delete : " Pengguna
+read -p "Nama Pengguna SSH untuk Dihapus : " Pengguna
 
 if getent passwd $Pengguna > /dev/null 2>&1; then
         userdel $Pengguna
         echo -e "Username $Pengguna Telah Di Hapus"
 else
-        echo -e "Failure: Username $Pengguna Tidak Ada"
+        echo -e "Gagal: Username $Pengguna Tidak Ada"
 fi

@@ -62,13 +62,13 @@ echo -e "### $VPN_USER $exp">>"/var/lib/sanistorevpn/data-user-pptp"
 cat <<EOF
 
 ============================
-PPTP VPN
+        PPTP VPN
 ============================
-IP/Host   : $PUBLIC_IP
-Domain    : $domain
+IP/Host       : $PUBLIC_IP
+Domain        : $domain
 Nama Pengguna : $VPN_USER
-Password  : $VPN_PASSWORD
-Dibuat   : $hariini
+Password      : $VPN_PASSWORD
+Dibuat        : $hariini
 Kadaluarsa    : $exp
 ============================
 Script By SaniVPN
