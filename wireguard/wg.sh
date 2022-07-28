@@ -29,7 +29,7 @@ exit 0
 fi
 # ==================================================
 # Link Hosting Kalian
-sanivpn="raw.githubusercontent.com/Yukik4ze/scriptvps/main/wireguard"
+sanivpn="raw.githubusercontent.com/yukik4ze/friedbanana/main/wireguard"
 
 # Cek versi OS
 if [[ -e /etc/debian_version ]]; then

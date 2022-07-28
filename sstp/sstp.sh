@@ -24,7 +24,7 @@ echo -e "${NC}${LIGHT}Script by : thethemythwashere"
 exit 0
 fi
 # Link Hosting Kalian
-sanivpn="raw.githubusercontent.com/Yukik4ze/scriptvps/main/sstp"
+sanivpn="raw.githubusercontent.com/yukik4ze/friedbanana/main/sstp"
 
 MYIP=$(wget -qO- ipinfo.io/ip);
 MYIP2="s/xxxxxxxxx/$MYIP/g";

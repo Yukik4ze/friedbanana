@@ -14,16 +14,16 @@ LIGHT='\033[0;37m'
 MYIP=$(wget -qO- ipinfo.io/ip);
 # ==================================================
 # Link Hosting Kalian
-sanivpn="raw.githubusercontent.com/Yukik4ze/scriptvps/main/ssh"
+sanivpn="raw.githubusercontent.com/yukik4ze/friedbanana/main/ssh"
 
 # Link Hosting Kalian Untuk Xray
-sanivpnsstp="raw.githubusercontent.com/Yukik4ze/scriptvps/main/xray"
+sanivpnsstp="raw.githubusercontent.com/yukik4ze/friedbanana/main/xray"
 
 # Link Hosting Kalian Untuk Trojan Go
-sanivpnssr="raw.githubusercontent.com/Yukik4ze/scriptvps/main/trojango"
+sanivpnssr="raw.githubusercontent.com/yukik4ze/friedbanana/main/trojango"
 
 # Link Hosting Kalian Untuk Stunnel5
-sanivpnshadowsocks="raw.githubusercontent.com/Yukik4ze/scriptvps/main/stunnel5"
+sanivpnshadowsocks="raw.githubusercontent.com/yukik4ze/friedbanana/main/stunnel5"
 
 # initializing var
 export DEBIAN_FRONTEND=noninteractive
@@ -390,7 +390,7 @@ netfilter-persistent reload
 cd /usr/bin
 wget -O addhost "https://${sanivpn}/addhost.sh"
 wget -O about "https://${sanivpn}/about.sh"
-wget -O menu "https://raw.githubusercontent.com/Yukik4ze/scriptvps/main/update/menu.sh"
+wget -O menu "https://raw.githubusercontent.com/yukik4ze/friedbanana/main/update/menu.sh"
 wget -O addssh "https://${sanivpn}/addssh.sh"
 wget -O trialssh "https://${sanivpn}/trialssh.sh"
 wget -O delssh "https://${sanivpn}/delssh.sh"
@@ -433,21 +433,21 @@ wget -O addtrgo "https://${sanivpnssr}/addtrgo.sh"
 wget -O deltrgo "https://${sanivpnssr}/deltrgo.sh"
 wget -O renewtrgo "https://${sanivpnssr}/renewtrgo.sh"
 wget -O cektrgo "https://${sanivpnssr}/cektrgo.sh"
-wget -O portsshnontls "https://raw.githubusercontent.com/Yukik4ze/scriptvps/main/websocket/portsshnontls.sh"
-wget -O portsshws "https://raw.githubusercontent.com/Yukik4ze/scriptvps/main/websocket/portsshws.sh"
+wget -O portsshnontls "https://raw.githubusercontent.com/yukik4ze/friedbanana/main/websocket/portsshnontls.sh"
+wget -O portsshws "https://raw.githubusercontent.com/yukik4ze/friedbanana/main/websocket/portsshws.sh"
 
-wget -O sshovpnmenu "https://raw.githubusercontent.com/Yukik4ze/scriptvps/main/update/sshovpn.sh"
-wget -O l2tpmenu "https://raw.githubusercontent.com/Yukik4ze/scriptvps/main/update/l2tpmenu.sh"
-wget -O pptpmenu "https://raw.githubusercontent.com/Yukik4ze/scriptvps/main/update/pptpmenu.sh"
-wget -O sstpmenu "https://raw.githubusercontent.com/Yukik4ze/scriptvps/main/update/sstpmenu.sh"
-wget -O wgmenu "https://raw.githubusercontent.com/Yukik4ze/scriptvps/main/update/wgmenu.sh"
-wget -O ssmenu "https://raw.githubusercontent.com/Yukik4ze/scriptvps/main/update/ssmenu.sh"
-wget -O ssrmenu "https://raw.githubusercontent.com/Yukik4ze/scriptvps/main/update/ssrmenu.sh"
-wget -O vmessmenu "https://raw.githubusercontent.com/Yukik4ze/scriptvps/main/update/vmessmenu.sh"
-wget -O vlessmenu "https://raw.githubusercontent.com/Yukik4ze/scriptvps/main/update/vlessmenu.sh"
-wget -O trmenu "https://raw.githubusercontent.com/Yukik4ze/scriptvps/main/update/trmenu.sh"
-wget -O trgomenu "https://raw.githubusercontent.com/Yukik4ze/scriptvps/main/update/trgomenu.sh"
-wget -O setmenu "https://raw.githubusercontent.com/Yukik4ze/scriptvps/main/update/setmenu.sh"
+wget -O sshovpnmenu "https://raw.githubusercontent.com/yukik4ze/friedbanana/main/update/sshovpn.sh"
+wget -O l2tpmenu "https://raw.githubusercontent.com/yukik4ze/friedbanana/main/update/l2tpmenu.sh"
+wget -O pptpmenu "https://raw.githubusercontent.com/yukik4ze/friedbanana/main/update/pptpmenu.sh"
+wget -O sstpmenu "https://raw.githubusercontent.com/yukik4ze/friedbanana/main/update/sstpmenu.sh"
+wget -O wgmenu "https://raw.githubusercontent.com/yukik4ze/friedbanana/main/update/wgmenu.sh"
+wget -O ssmenu "https://raw.githubusercontent.com/yukik4ze/friedbanana/main/update/ssmenu.sh"
+wget -O ssrmenu "https://raw.githubusercontent.com/yukik4ze/friedbanana/main/update/ssrmenu.sh"
+wget -O vmessmenu "https://raw.githubusercontent.com/yukik4ze/friedbanana/main/update/vmessmenu.sh"
+wget -O vlessmenu "https://raw.githubusercontent.com/yukik4ze/friedbanana/main/update/vlessmenu.sh"
+wget -O trmenu "https://raw.githubusercontent.com/yukik4ze/friedbanana/main/update/trmenu.sh"
+wget -O trgomenu "https://raw.githubusercontent.com/yukik4ze/friedbanana/main/update/trgomenu.sh"
+wget -O setmenu "https://raw.githubusercontent.com/yukik4ze/friedbanana/main/update/setmenu.sh"
 
 
 chmod +x portsshnontls

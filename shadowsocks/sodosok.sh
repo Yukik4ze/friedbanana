@@ -25,7 +25,7 @@ echo -e "${NC}${LIGHT}Script by : thethemythwashere"
 exit 0
 fi
 # Link Hosting Kalian
-sanivpn="raw.githubusercontent.com/Yukik4ze/scriptvps/main/shadowsocks"
+sanivpn="raw.githubusercontent.com/yukik4ze/friedbanana/main/shadowsocks"
 
 source /etc/os-release
 OS=$ID

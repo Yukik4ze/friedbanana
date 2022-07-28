@@ -24,7 +24,7 @@ echo -e "${NC}${LIGHT}Script by : thethemythwashere"
 exit 0
 fi
 # Link Hosting Kalian
-sanivpn="raw.githubusercontent.com/Yukik4ze/scriptvps/main/ssr"
+sanivpn="raw.githubusercontent.com/yukik4ze/friedbanana/main/ssr"
 
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH

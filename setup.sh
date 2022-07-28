@@ -19,25 +19,25 @@ CYAN='\033[0;36m'
 LIGHT='\033[0;37m'
 # ==========================================
 # Link Hosting Kalian Untuk SSH VPN
-sanivpn="raw.githubusercontent.com/Yukik4ze/scriptvps/main/ssh"
+sanivpn="raw.githubusercontent.com/yukik4ze/friedbanana/main/ssh"
 # Link Hosting Kalian Untuk SSTP
-sanivpnsstp="raw.githubusercontent.com/Yukik4ze/scriptvps/main/sstp"
+sanivpnsstp="raw.githubusercontent.com/yukik4ze/friedbanana/main/sstp"
 # Link Hosting Kalian Untuk SSR
-sanivpnssr="raw.githubusercontent.com/Yukik4ze/scriptvps/main/ssr"
+sanivpnssr="raw.githubusercontent.com/yukik4ze/friedbanana/main/ssr"
 # Link Hosting Kalian Untuk Shadowsocks
-sanivpnshadowsocks="raw.githubusercontent.com/Yukik4ze/scriptvps/main/shadowsocks"
+sanivpnshadowsocks="raw.githubusercontent.com/yukik4ze/friedbanana/main/shadowsocks"
 # Link Hosting Kalian Untuk Wireguard
-sanivpnwireguard="raw.githubusercontent.com/Yukik4ze/scriptvps/main/wireguard"
+sanivpnwireguard="raw.githubusercontent.com/yukik4ze/friedbanana/main/wireguard"
 # Link Hosting Kalian Untuk XRAY
-sanivpnxray="raw.githubusercontent.com/Yukik4ze/scriptvps/main/xray"
+sanivpnxray="raw.githubusercontent.com/yukik4ze/friedbanana/main/xray"
 # Link Hosting Kalian Untuk IPSec
-sanivpnipsec="raw.githubusercontent.com/Yukik4ze/scriptvps/main/ipsec"
+sanivpnipsec="raw.githubusercontent.com/yukik4ze/friedbanana/main/ipsec"
 # Link Hosting Kalian Untuk Backup
-sanivpnbackup="raw.githubusercontent.com/Yukik4ze/scriptvps/main/backup"
+sanivpnbackup="raw.githubusercontent.com/yukik4ze/friedbanana/main/backup"
 # Link Hosting Kalian Untuk WebSocket
-sanivpnwebsocket="raw.githubusercontent.com/Yukik4ze/scriptvps/main/websocket"
+sanivpnwebsocket="raw.githubusercontent.com/yukik4ze/friedbanana/main/websocket"
 # Link Hosting Kalian Untuk OHP
-sanivpnohp="raw.githubusercontent.com/Yukik4ze/scriptvps/main/ohp"
+sanivpnohp="raw.githubusercontent.com/yukik4ze/friedbanana/main/ohp"
 
 # Persiapan VPS
 MYIP=$(wget -qO- ipinfo.io/ip);

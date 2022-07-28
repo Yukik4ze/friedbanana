@@ -26,7 +26,7 @@ fi
 # By SaniVPN
 # ==================================================
 # Link Hosting Kalian
-sanivpn="raw.githubusercontent.com/Yukik4ze/scriptvps/main/ssh"
+sanivpn="raw.githubusercontent.com/yukik4ze/friedbanana/main/ssh"
 
 # initialisasi var
 export DEBIAN_FRONTEND=noninteractive

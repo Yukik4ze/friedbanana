@@ -25,7 +25,7 @@ echo -e "${NC}${LIGHT}Script by : thethemythwashere"
 exit 0
 fi
 # Link Hosting Kalian
-sanivpn="raw.githubusercontent.com/Yukik4ze/scriptvps/main/websocket"
+sanivpn="raw.githubusercontent.com/yukik4ze/friedbanana/main/websocket"
 
 # Persiapan VPS Proxy Template
 wget -q -O /usr/local/bin/ws-nontls https://${sanivpn}/websocket.py

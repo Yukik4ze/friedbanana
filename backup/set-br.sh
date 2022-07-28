@@ -14,7 +14,7 @@ LIGHT='\033[0;37m'
 MYIP=$(wget -qO- ipinfo.io/ip);
 echo "Memeriksa VPS"
 # Link Hosting Kalian
-sanivpn="raw.githubusercontent.com/Yukik4ze/scriptvps/main/backup"
+sanivpn="raw.githubusercontent.com/yukik4ze/friedbanana/main/backup"
 
 apt install rclone -y
 printf "q\n" | rclone config
